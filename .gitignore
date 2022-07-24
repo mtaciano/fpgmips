@@ -1,0 +1,10 @@
+db/
+qar_info.*
+verilog.done
+verilog.restore.*
+incremental_db/
+simulation/
+*.bak
+*.rpt
+*.summary
+*.smsg

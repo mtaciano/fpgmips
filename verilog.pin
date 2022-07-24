@@ -1,0 +1,851 @@
+ -- Copyright (C) 2022  Intel Corporation. All rights reserved.
+ -- Your use of Intel Corporation's design tools, logic functions
+ -- and other software and tools, and any partner logic
+ -- functions, and any output files from any of the foregoing
+ -- (including device programming or simulation files), and any
+ -- associated documentation or information are expressly subject
+ -- to the terms and conditions of the Intel Program License
+ -- Subscription Agreement, the Intel Quartus Prime License Agreement,
+ -- the Intel FPGA IP License Agreement, or other applicable license
+ -- agreement, including, without limitation, that your use is for
+ -- the sole purpose of programming logic devices manufactured by
+ -- Intel and sold by Intel or its authorized distributors.  Please
+ -- refer to the applicable agreement for further details, at
+ -- https://fpgasoftware.intel.com/eula.
+ --
+ -- This is a Quartus Prime output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus Prime input file. This file cannot be used
+ -- to make Quartus Prime pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus Prime help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.2V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --                  Bank 1:       2.5V
+ --                  Bank 2:       2.5V
+ --                  Bank 3:       2.5V
+ --                  Bank 4:       2.5V
+ --                  Bank 5:       2.5V
+ --                  Bank 6:       2.5V
+ --                  Bank 7:       2.5V
+ --                  Bank 8:       2.5V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --                  It can also be used to report unused dedicated pins. The connection
+ --                  on the board for unused dedicated pins depends on whether this will
+ --                  be used in a future design. One example is device migration. When
+ --                  using device migration, refer to the device pin-tables. If it is a
+ --                  GND pin in the pin table or if it will not be used in a future design
+ --                  for another purpose the it MUST be connected to GND. If it is an unused
+ --                  dedicated pin, then it can be connected to a valid signal on the board
+ --                  (low, high, or toggling) if that signal is required for a different
+ --                  revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --                  This pin should be connected to GND. It may also be connected  to a
+ --                  valid signal  on the board  (low, high, or toggling)  if that signal
+ --                  is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin. Connect each pin marked GND* directly to GND
+ --                  or leave it unconnected.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+CHIP  "verilog"  ASSIGNED TO AN: EP4CE115F29C7
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+VCCIO8                       : A2        : power  :                   : 2.5V    : 8         :
+pinors[25]                   : A3        : output : 2.5 V             :         : 8         : N
+pinord[25]                   : A4        : output : 2.5 V             :         : 8         : N
+VCCIO8                       : A5        : power  :                   : 2.5V    : 8         :
+pinord[14]                   : A6        : output : 2.5 V             :         : 8         : N
+pinord[9]                    : A7        : output : 2.5 V             :         : 8         : N
+pinodados[2]                 : A8        : output : 2.5 V             :         : 8         : N
+VCCIO8                       : A9        : power  :                   : 2.5V    : 8         :
+pinosaidapc[15]              : A10       : output : 2.5 V             :         : 8         : N
+pinosaidapc[13]              : A11       : output : 2.5 V             :         : 8         : N
+pinoresultado[7]             : A12       : output : 2.5 V             :         : 8         : N
+VCCIO8                       : A13       : power  :                   : 2.5V    : 8         :
+GND+                         : A14       :        :                   :         : 8         :
+GND+                         : A15       :        :                   :         : 7         :
+VCCIO7                       : A16       : power  :                   : 2.5V    : 7         :
+pinoresultado[30]            : A17       : output : 2.5 V             :         : 7         : N
+pinoultimo[18]               : A18       : output : 2.5 V             :         : 7         : N
+pinoinstrucao[2]             : A19       : output : 2.5 V             :         : 7         : N
+VCCIO7                       : A20       : power  :                   : 2.5V    : 7         :
+pinoultimo[28]               : A21       : output : 2.5 V             :         : 7         : N
+pinoultimo[27]               : A22       : output : 2.5 V             :         : 7         : N
+RESERVED_INPUT               : A23       :        :                   :         : 7         :
+VCCIO7                       : A24       : power  :                   : 2.5V    : 7         :
+RESERVED_INPUT               : A25       :        :                   :         : 7         :
+RESERVED_INPUT               : A26       :        :                   :         : 7         :
+VCCIO7                       : A27       : power  :                   : 2.5V    : 7         :
+VCCIO2                       : AA1       : power  :                   : 2.5V    : 2         :
+GND                          : AA2       : gnd    :                   :         :           :
+pinodados[16]                : AA3       : output : 2.5 V             :         : 2         : N
+pinovarx[14]                 : AA4       : output : 2.5 V             :         : 2         : N
+pinoultimo[12]               : AA5       : output : 2.5 V             :         : 2         : N
+pinovarx[17]                 : AA6       : output : 2.5 V             :         : 2         : N
+pinoresultado[12]            : AA7       : output : 2.5 V             :         : 2         : N
+pinovary[18]                 : AA8       : output : 2.5 V             :         : 3         : N
+GNDA1                        : AA9       : gnd    :                   :         :           :
+pinosaidapc[21]              : AA10      : output : 2.5 V             :         : 3         : N
+VCCIO3                       : AA11      : power  :                   : 2.5V    : 3         :
+pinovarx[29]                 : AA12      : output : 2.5 V             :         : 3         : N
+pinoopcode[2]                : AA13      : output : 2.5 V             :         : 3         : N
+pinovarx[19]                 : AA14      : output : 2.5 V             :         : 3         : N
+RESERVED_INPUT               : AA15      :        :                   :         : 4         :
+pinoresultado[19]            : AA16      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AA17      :        :                   :         : 4         :
+VCCIO4                       : AA18      : power  :                   : 2.5V    : 4         :
+RESERVED_INPUT               : AA19      :        :                   :         : 4         :
+GNDA4                        : AA20      : gnd    :                   :         :           :
+RESERVED_INPUT               : AA21      :        :                   :         : 4         :
+RESERVED_INPUT               : AA22      :        :                   :         : 5         :
+RESERVED_INPUT               : AA23      :        :                   :         : 5         :
+RESERVED_INPUT               : AA24      :        :                   :         : 5         :
+pinoinstrucao[21]            : AA25      : output : 2.5 V             :         : 5         : N
+RESERVED_INPUT               : AA26      :        :                   :         : 5         :
+GND                          : AA27      : gnd    :                   :         :           :
+VCCIO5                       : AA28      : power  :                   : 2.5V    : 5         :
+pinodados[31]                : AB1       : output : 2.5 V             :         : 2         : N
+pinosaidapc[27]              : AB2       : output : 2.5 V             :         : 2         : N
+pinodados[1]                 : AB3       : output : 2.5 V             :         : 2         : N
+pinodados[7]                 : AB4       : output : 2.5 V             :         : 2         : N
+pinoultimo[23]               : AB5       : output : 2.5 V             :         : 2         : N
+pinoresultado[23]            : AB6       : output : 2.5 V             :         : 2         : N
+pinovarx[13]                 : AB7       : output : 2.5 V             :         : 3         : N
+pinoultimo[5]                : AB8       : output : 2.5 V             :         : 3         : N
+pinoresultado[5]             : AB9       : output : 2.5 V             :         : 3         : N
+pinovarx[9]                  : AB10      : output : 2.5 V             :         : 3         : N
+pinosaidapc[11]              : AB11      : output : 2.5 V             :         : 3         : N
+pinoultimo[16]               : AB12      : output : 2.5 V             :         : 3         : N
+pinosaidapc[31]              : AB13      : output : 2.5 V             :         : 3         : N
+pinors[29]                   : AB14      : output : 2.5 V             :         : 3         : N
+RESERVED_INPUT               : AB15      :        :                   :         : 4         :
+RESERVED_INPUT               : AB16      :        :                   :         : 4         :
+RESERVED_INPUT               : AB17      :        :                   :         : 4         :
+RESERVED_INPUT               : AB18      :        :                   :         : 4         :
+RESERVED_INPUT               : AB19      :        :                   :         : 4         :
+pinoalucrt[2]                : AB20      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AB21      :        :                   :         : 4         :
+RESERVED_INPUT               : AB22      :        :                   :         : 4         :
+RESERVED_INPUT               : AB23      :        :                   :         : 5         :
+RESERVED_INPUT               : AB24      :        :                   :         : 5         :
+pinoinstrucao[15]            : AB25      : output : 2.5 V             :         : 5         : N
+RESERVED_INPUT               : AB26      :        :                   :         : 5         :
+pinoinstrucao[14]            : AB27      : output : 2.5 V             :         : 5         : N
+RESERVED_INPUT               : AB28      :        :                   :         : 5         :
+pinodados[5]                 : AC1       : output : 2.5 V             :         : 2         : N
+pinoultimo[11]               : AC2       : output : 2.5 V             :         : 2         : N
+pinoresultado[11]            : AC3       : output : 2.5 V             :         : 2         : N
+pinoinstrucao[19]            : AC4       : output : 2.5 V             :         : 2         : N
+pinord[17]                   : AC5       : output : 2.5 V             :         : 2         : N
+GND                          : AC6       : gnd    :                   :         :           :
+pinort[23]                   : AC7       : output : 2.5 V             :         : 3         : N
+pinort[31]                   : AC8       : output : 2.5 V             :         : 3         : N
+GND                          : AC9       : gnd    :                   :         :           :
+pinors[9]                    : AC10      : output : 2.5 V             :         : 3         : N
+pinoresultado[9]             : AC11      : output : 2.5 V             :         : 3         : N
+pinoresultado[16]            : AC12      : output : 2.5 V             :         : 3         : N
+GND                          : AC13      : gnd    :                   :         :           :
+pinoinstrucao[30]            : AC14      : output : 2.5 V             :         : 3         : N
+pinovarx[5]                  : AC15      : output : 2.5 V             :         : 4         : N
+GND                          : AC16      : gnd    :                   :         :           :
+RESERVED_INPUT               : AC17      :        :                   :         : 4         :
+RESERVED_INPUT               : AC18      :        :                   :         : 4         :
+RESERVED_INPUT               : AC19      :        :                   :         : 4         :
+GND                          : AC20      : gnd    :                   :         :           :
+RESERVED_INPUT               : AC21      :        :                   :         : 4         :
+RESERVED_INPUT               : AC22      :        :                   :         : 4         :
+GND                          : AC23      : gnd    :                   :         :           :
+RESERVED_INPUT               : AC24      :        :                   :         : 5         :
+RESERVED_INPUT               : AC25      :        :                   :         : 5         :
+RESERVED_INPUT               : AC26      :        :                   :         : 5         :
+RESERVED_INPUT               : AC27      :        :                   :         : 5         :
+RESERVED_INPUT               : AC28      :        :                   :         : 5         :
+pinodados[10]                : AD1       : output : 2.5 V             :         : 2         : N
+pinord[2]                    : AD2       : output : 2.5 V             :         : 2         : N
+pinord[19]                   : AD3       : output : 2.5 V             :         : 2         : N
+pinoultimo[21]               : AD4       : output : 2.5 V             :         : 3         : N
+pinovarx[23]                 : AD5       : output : 2.5 V             :         : 3         : N
+VCCIO3                       : AD6       : power  :                   : 2.5V    : 3         :
+negativo                     : AD7       : output : 2.5 V             :         : 3         : N
+pinodados[22]                : AD8       : output : 2.5 V             :         : 3         : N
+VCCIO3                       : AD9       : power  :                   : 2.5V    : 3         :
+pinodados[23]                : AD10      : output : 2.5 V             :         : 3         : N
+pinoultimo[9]                : AD11      : output : 2.5 V             :         : 3         : N
+pinodados[19]                : AD12      : output : 2.5 V             :         : 3         : N
+VCCIO3                       : AD13      : power  :                   : 2.5V    : 3         :
+pinoinstrucao[1]             : AD14      : output : 2.5 V             :         : 3         : N
+pinors[5]                    : AD15      : output : 2.5 V             :         : 4         : N
+VCCIO4                       : AD16      : power  :                   : 2.5V    : 4         :
+RESERVED_INPUT               : AD17      :        :                   :         : 4         :
+RESERVED_INPUT               : AD18      :        :                   :         : 4         :
+RESERVED_INPUT               : AD19      :        :                   :         : 4         :
+VCCIO4                       : AD20      : power  :                   : 2.5V    : 4         :
+RESERVED_INPUT               : AD21      :        :                   :         : 4         :
+pinoinstrucao[10]            : AD22      : output : 2.5 V             :         : 4         : N
+VCCIO4                       : AD23      : power  :                   : 2.5V    : 4         :
+RESERVED_INPUT               : AD24      :        :                   :         : 4         :
+RESERVED_INPUT               : AD25      :        :                   :         : 4         :
+RESERVED_INPUT               : AD26      :        :                   :         : 5         :
+RESERVED_INPUT               : AD27      :        :                   :         : 5         :
+RESERVED_INPUT               : AD28      :        :                   :         : 5         :
+pinors[14]                   : AE1       : output : 2.5 V             :         : 2         : N
+pinord[21]                   : AE2       : output : 2.5 V             :         : 2         : N
+pinoresultado[22]            : AE3       : output : 2.5 V             :         : 2         : N
+pinoresultado[17]            : AE4       : output : 2.5 V             :         : 3         : N
+pinors[24]                   : AE5       : output : 2.5 V             :         : 3         : N
+pinors[23]                   : AE6       : output : 2.5 V             :         : 3         : N
+pinosaidapc[25]              : AE7       : output : 2.5 V             :         : 3         : N
+pinosaidapc[29]              : AE8       : output : 2.5 V             :         : 3         : N
+pinodados[27]                : AE9       : output : 2.5 V             :         : 3         : N
+pinovarx[28]                 : AE10      : output : 2.5 V             :         : 3         : N
+pinors[22]                   : AE11      : output : 2.5 V             :         : 3         : N
+pinort[24]                   : AE12      : output : 2.5 V             :         : 3         : N
+pinovarx[7]                  : AE13      : output : 2.5 V             :         : 3         : N
+pinoresultado[2]             : AE14      : output : 2.5 V             :         : 3         : N
+pinovarx[16]                 : AE15      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AE16      :        :                   :         : 4         :
+RESERVED_INPUT               : AE17      :        :                   :         : 4         :
+RESERVED_INPUT               : AE18      :        :                   :         : 4         :
+RESERVED_INPUT               : AE19      :        :                   :         : 4         :
+RESERVED_INPUT               : AE20      :        :                   :         : 4         :
+RESERVED_INPUT               : AE21      :        :                   :         : 4         :
+RESERVED_INPUT               : AE22      :        :                   :         : 4         :
+pinoinstrucao[16]            : AE23      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AE24      :        :                   :         : 4         :
+RESERVED_INPUT               : AE25      :        :                   :         : 4         :
+RESERVED_INPUT               : AE26      :        :                   :         : 5         :
+RESERVED_INPUT               : AE27      :        :                   :         : 5         :
+RESERVED_INPUT               : AE28      :        :                   :         : 5         :
+GND                          : AF1       : gnd    :                   :         :           :
+pinoultimo[22]               : AF2       : output : 2.5 V             :         : 2         : N
+pinoresultado[3]             : AF3       : output : 2.5 V             :         : 3         : N
+pinoresultado[21]            : AF4       : output : 2.5 V             :         : 3         : N
+pinovarx[24]                 : AF5       : output : 2.5 V             :         : 3         : N
+pinoultimo[3]                : AF6       : output : 2.5 V             :         : 3         : N
+pinosaidapc[16]              : AF7       : output : 2.5 V             :         : 3         : N
+pinord[30]                   : AF8       : output : 2.5 V             :         : 3         : N
+pinosaidapc[18]              : AF9       : output : 2.5 V             :         : 3         : N
+pinors[28]                   : AF10      : output : 2.5 V             :         : 3         : N
+pinovarx[22]                 : AF11      : output : 2.5 V             :         : 3         : N
+pinosaidapc[8]               : AF12      : output : 2.5 V             :         : 3         : N
+pinors[7]                    : AF13      : output : 2.5 V             :         : 3         : N
+pinoultimo[2]                : AF14      : output : 2.5 V             :         : 3         : N
+pinors[16]                   : AF15      : output : 2.5 V             :         : 4         : N
+pinoultimo[19]               : AF16      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AF17      :        :                   :         : 4         :
+RESERVED_INPUT               : AF18      :        :                   :         : 4         :
+RESERVED_INPUT               : AF19      :        :                   :         : 4         :
+RESERVED_INPUT               : AF20      :        :                   :         : 4         :
+RESERVED_INPUT               : AF21      :        :                   :         : 4         :
+pinoinstrucao[5]             : AF22      : output : 2.5 V             :         : 4         : N
+pinoinstrucao[25]            : AF23      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AF24      :        :                   :         : 4         :
+RESERVED_INPUT               : AF25      :        :                   :         : 4         :
+RESERVED_INPUT               : AF26      :        :                   :         : 4         :
+RESERVED_INPUT               : AF27      :        :                   :         : 5         :
+GND                          : AF28      : gnd    :                   :         :           :
+VCCIO2                       : AG1       : power  :                   : 2.5V    : 2         :
+GND                          : AG2       : gnd    :                   :         :           :
+pinoultimo[17]               : AG3       : output : 2.5 V             :         : 3         : N
+pinovarx[20]                 : AG4       : output : 2.5 V             :         : 3         : N
+GND                          : AG5       : gnd    :                   :         :           :
+pinors[2]                    : AG6       : output : 2.5 V             :         : 3         : N
+pinord[0]                    : AG7       : output : 2.5 V             :         : 3         : N
+pinodados[30]                : AG8       : output : 2.5 V             :         : 3         : N
+GND                          : AG9       : gnd    :                   :         :           :
+pinosaidapc[10]              : AG10      : output : 2.5 V             :         : 3         : N
+pinort[19]                   : AG11      : output : 2.5 V             :         : 3         : N
+pinoinstrucao[17]            : AG12      : output : 2.5 V             :         : 3         : N
+GND                          : AG13      : gnd    :                   :         :           :
+GND+                         : AG14      :        :                   :         : 3         :
+GND+                         : AG15      :        :                   :         : 4         :
+GND                          : AG16      : gnd    :                   :         :           :
+pinoresultado[6]             : AG17      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AG18      :        :                   :         : 4         :
+RESERVED_INPUT               : AG19      :        :                   :         : 4         :
+GND                          : AG20      : gnd    :                   :         :           :
+RESERVED_INPUT               : AG21      :        :                   :         : 4         :
+RESERVED_INPUT               : AG22      :        :                   :         : 4         :
+RESERVED_INPUT               : AG23      :        :                   :         : 4         :
+GND                          : AG24      : gnd    :                   :         :           :
+pinopccontrol                : AG25      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AG26      :        :                   :         : 4         :
+GND                          : AG27      : gnd    :                   :         :           :
+VCCIO5                       : AG28      : power  :                   : 2.5V    : 5         :
+VCCIO3                       : AH2       : power  :                   : 2.5V    : 3         :
+pinoresultado[31]            : AH3       : output : 2.5 V             :         : 3         : N
+pinors[20]                   : AH4       : output : 2.5 V             :         : 3         : N
+VCCIO3                       : AH5       : power  :                   : 2.5V    : 3         :
+pinovarx[2]                  : AH6       : output : 2.5 V             :         : 3         : N
+pinors[13]                   : AH7       : output : 2.5 V             :         : 3         : N
+pinosaidapc[17]              : AH8       : output : 2.5 V             :         : 3         : N
+VCCIO3                       : AH9       : power  :                   : 2.5V    : 3         :
+pinord[11]                   : AH10      : output : 2.5 V             :         : 3         : N
+pinosaidapc[6]               : AH11      : output : 2.5 V             :         : 3         : N
+pinoinstrucao[3]             : AH12      : output : 2.5 V             :         : 3         : N
+VCCIO3                       : AH13      : power  :                   : 2.5V    : 3         :
+GND+                         : AH14      :        :                   :         : 3         :
+GND+                         : AH15      :        :                   :         : 4         :
+VCCIO4                       : AH16      : power  :                   : 2.5V    : 4         :
+pinoultimo[6]                : AH17      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AH18      :        :                   :         : 4         :
+RESERVED_INPUT               : AH19      :        :                   :         : 4         :
+VCCIO4                       : AH20      : power  :                   : 2.5V    : 4         :
+pinoinstrucao[6]             : AH21      : output : 2.5 V             :         : 4         : N
+RESERVED_INPUT               : AH22      :        :                   :         : 4         :
+RESERVED_INPUT               : AH23      :        :                   :         : 4         :
+VCCIO4                       : AH24      : power  :                   : 2.5V    : 4         :
+RESERVED_INPUT               : AH25      :        :                   :         : 4         :
+RESERVED_INPUT               : AH26      :        :                   :         : 4         :
+VCCIO4                       : AH27      : power  :                   : 2.5V    : 4         :
+VCCIO1                       : B1        : power  :                   : 2.5V    : 1         :
+GND                          : B2        : gnd    :                   :         :           :
+pinovarx[25]                 : B3        : output : 2.5 V             :         : 8         : N
+pinort[7]                    : B4        : output : 2.5 V             :         : 8         : N
+GND                          : B5        : gnd    :                   :         :           :
+pinodados[8]                 : B6        : output : 2.5 V             :         : 8         : N
+pinord[6]                    : B7        : output : 2.5 V             :         : 8         : N
+pinort[15]                   : B8        : output : 2.5 V             :         : 8         : N
+GND                          : B9        : gnd    :                   :         :           :
+pinodados[25]                : B10       : output : 2.5 V             :         : 8         : N
+pinodados[21]                : B11       : output : 2.5 V             :         : 8         : N
+GND                          : B12       : gnd    :                   :         :           :
+GND                          : B13       : gnd    :                   :         :           :
+GND+                         : B14       :        :                   :         : 8         :
+GND+                         : B15       :        :                   :         : 7         :
+GND                          : B16       : gnd    :                   :         :           :
+pinovarx[8]                  : B17       : output : 2.5 V             :         : 7         : N
+pinoresultado[18]            : B18       : output : 2.5 V             :         : 7         : N
+pinoinstrucao[0]             : B19       : output : 2.5 V             :         : 7         : N
+GND                          : B20       : gnd    :                   :         :           :
+pinoultimo[4]                : B21       : output : 2.5 V             :         : 7         : N
+pinoresultado[28]            : B22       : output : 2.5 V             :         : 7         : N
+RESERVED_INPUT               : B23       :        :                   :         : 7         :
+GND                          : B24       : gnd    :                   :         :           :
+RESERVED_INPUT               : B25       :        :                   :         : 7         :
+RESERVED_INPUT               : B26       :        :                   :         : 7         :
+GND                          : B27       : gnd    :                   :         :           :
+VCCIO6                       : B28       : power  :                   : 2.5V    : 6         :
+GND                          : C1        : gnd    :                   :         :           :
+pinovary[14]                 : C2        : output : 2.5 V             :         : 1         : N
+pinord[22]                   : C3        : output : 2.5 V             :         : 8         : N
+pinors[12]                   : C4        : output : 2.5 V             :         : 8         : N
+pinord[10]                   : C5        : output : 2.5 V             :         : 8         : N
+pinord[4]                    : C6        : output : 2.5 V             :         : 8         : N
+pinort[20]                   : C7        : output : 2.5 V             :         : 8         : N
+pinovary[15]                 : C8        : output : 2.5 V             :         : 8         : N
+pinodados[20]                : C9        : output : 2.5 V             :         : 8         : N
+pinord[29]                   : C10       : output : 2.5 V             :         : 8         : N
+pinord[12]                   : C11       : output : 2.5 V             :         : 8         : N
+pinord[27]                   : C12       : output : 2.5 V             :         : 8         : N
+pinort[29]                   : C13       : output : 2.5 V             :         : 8         : N
+pinort[27]                   : C14       : output : 2.5 V             :         : 8         : N
+pinort[8]                    : C15       : output : 2.5 V             :         : 7         : N
+pinovarx[11]                 : C16       : output : 2.5 V             :         : 7         : N
+pinoinstrucao[31]            : C17       : output : 2.5 V             :         : 7         : N
+pinoresultado[4]             : C18       : output : 2.5 V             :         : 7         : N
+pinors[26]                   : C19       : output : 2.5 V             :         : 7         : N
+pinoresultado[8]             : C20       : output : 2.5 V             :         : 7         : N
+pinoultimo[24]               : C21       : output : 2.5 V             :         : 7         : N
+RESERVED_INPUT               : C22       :        :                   :         : 7         :
+RESERVED_INPUT               : C23       :        :                   :         : 7         :
+RESERVED_INPUT               : C24       :        :                   :         : 7         :
+RESERVED_INPUT               : C25       :        :                   :         : 7         :
+pinoinstrucao[11]            : C26       : output : 2.5 V             :         : 7         : N
+RESERVED_INPUT               : C27       :        :                   :         : 6         :
+GND                          : C28       : gnd    :                   :         :           :
+pinovarx[0]                  : D1        : output : 2.5 V             :         : 1         : N
+pinord[23]                   : D2        : output : 2.5 V             :         : 1         : N
+GND                          : D3        : gnd    :                   :         :           :
+pinoultimo[0]                : D4        : output : 2.5 V             :         : 8         : N
+pinord[5]                    : D5        : output : 2.5 V             :         : 8         : N
+pinord[13]                   : D6        : output : 2.5 V             :         : 8         : N
+pinoinstrucao[22]            : D7        : output : 2.5 V             :         : 8         : N
+pinoescreveR                 : D8        : output : 2.5 V             :         : 8         : N
+pinodados[17]                : D9        : output : 2.5 V             :         : 8         : N
+pinodados[9]                 : D10       : output : 2.5 V             :         : 8         : N
+pinovary[6]                  : D11       : output : 2.5 V             :         : 8         : N
+pinodados[11]                : D12       : output : 2.5 V             :         : 8         : N
+pinodados[29]                : D13       : output : 2.5 V             :         : 8         : N
+pinodados[13]                : D14       : output : 2.5 V             :         : 8         : N
+pinodados[3]                 : D15       : output : 2.5 V             :         : 7         : N
+pinors[11]                   : D16       : output : 2.5 V             :         : 7         : N
+pinoresultado[1]             : D17       : output : 2.5 V             :         : 7         : N
+pinoultimo[8]                : D18       : output : 2.5 V             :         : 7         : N
+pinoresultado[26]            : D19       : output : 2.5 V             :         : 7         : N
+pinovarx[3]                  : D20       : output : 2.5 V             :         : 7         : N
+pinoinstrucao[4]             : D21       : output : 2.5 V             :         : 7         : N
+pinoinstrucao[8]             : D22       : output : 2.5 V             :         : 7         : N
+RESERVED_INPUT               : D23       :        :                   :         : 7         :
+RESERVED_INPUT               : D24       :        :                   :         : 7         :
+RESERVED_INPUT               : D25       :        :                   :         : 7         :
+RESERVED_INPUT               : D26       :        :                   :         : 6         :
+RESERVED_INPUT               : D27       :        :                   :         : 6         :
+pinoinstrucao[26]            : D28       : output : 2.5 V             :         : 6         : N
+pinovary[13]                 : E1        : output : 2.5 V             :         : 1         : N
+~ALTERA_FLASH_nCE_nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : E2        : input  : 2.5 V             :         : 1         : N
+pinors[6]                    : E3        : output : 2.5 V             :         : 1         : N
+pinoresultado[0]             : E4        : output : 2.5 V             :         : 8         : N
+pinovarx[12]                 : E5        : output : 2.5 V             :         : 8         : N
+VCCIO8                       : E6        : power  :                   : 2.5V    : 8         :
+pinodados[15]                : E7        : output : 2.5 V             :         : 8         : N
+pinort[5]                    : E8        : output : 2.5 V             :         : 8         : N
+VCCIO8                       : E9        : power  :                   : 2.5V    : 8         :
+pinovary[17]                 : E10       : output : 2.5 V             :         : 8         : N
+zero                         : E11       : output : 2.5 V             :         : 8         : N
+pinord[8]                    : E12       : output : 2.5 V             :         : 8         : N
+VCCIO8                       : E13       : power  :                   : 2.5V    : 8         :
+pinort[26]                   : E14       : output : 2.5 V             :         : 8         : N
+pinors[10]                   : E15       : output : 2.5 V             :         : 7         : N
+VCCIO7                       : E16       : power  :                   : 2.5V    : 7         :
+pinors[15]                   : E17       : output : 2.5 V             :         : 7         : N
+pinoresultado[24]            : E18       : output : 2.5 V             :         : 7         : N
+RESERVED_INPUT               : E19       :        :                   :         : 7         :
+VCCIO7                       : E20       : power  :                   : 2.5V    : 7         :
+RESERVED_INPUT               : E21       :        :                   :         : 7         :
+RESERVED_INPUT               : E22       :        :                   :         : 7         :
+VCCIO7                       : E23       : power  :                   : 2.5V    : 7         :
+pinors[3]                    : E24       : output : 2.5 V             :         : 7         : N
+pinovarx[26]                 : E25       : output : 2.5 V             :         : 7         : N
+RESERVED_INPUT               : E26       :        :                   :         : 6         :
+RESERVED_INPUT               : E27       :        :                   :         : 6         :
+pinoinstrucao[12]            : E28       : output : 2.5 V             :         : 6         : N
+pinovary[0]                  : F1        : output : 2.5 V             :         : 1         : N
+pinovary[8]                  : F2        : output : 2.5 V             :         : 1         : N
+pinovarx[6]                  : F3        : output : 2.5 V             :         : 1         : N
+~ALTERA_ASDO_DATA1~ / RESERVED_INPUT_WITH_WEAK_PULLUP : F4        : input  : 2.5 V             :         : 1         : N
+pinord[1]                    : F5        : output : 2.5 V             :         : 1         : N
+GND                          : F6        : gnd    :                   :         :           :
+pinord[20]                   : F7        : output : 2.5 V             :         : 8         : N
+pinodados[0]                 : F8        : output : 2.5 V             :         : 8         : N
+GND                          : F9        : gnd    :                   :         :           :
+pinoopcode[0]                : F10       : output : 2.5 V             :         : 8         : N
+pinort[16]                   : F11       : output : 2.5 V             :         : 8         : N
+pinort[12]                   : F12       : output : 2.5 V             :         : 8         : N
+GND                          : F13       : gnd    :                   :         :           :
+pinoultimo[7]                : F14       : output : 2.5 V             :         : 8         : N
+pinovarx[10]                 : F15       : output : 2.5 V             :         : 7         : N
+GND                          : F16       : gnd    :                   :         :           :
+pinovarx[15]                 : F17       : output : 2.5 V             :         : 7         : N
+pinosaidapc[9]               : F18       : output : 2.5 V             :         : 7         : N
+pinoresultado[27]            : F19       : output : 2.5 V             :         : 7         : N
+GND                          : F20       : gnd    :                   :         :           :
+RESERVED_INPUT               : F21       :        :                   :         : 7         :
+RESERVED_INPUT               : F22       :        :                   :         : 7         :
+GND                          : F23       : gnd    :                   :         :           :
+RESERVED_INPUT               : F24       :        :                   :         : 6         :
+RESERVED_INPUT               : F25       :        :                   :         : 6         :
+RESERVED_INPUT               : F26       :        :                   :         : 6         :
+RESERVED_INPUT               : F27       :        :                   :         : 6         :
+RESERVED_INPUT               : F28       :        :                   :         : 6         :
+pinosaidapc[4]               : G1        : output : 2.5 V             :         : 1         : N
+pinovary[2]                  : G2        : output : 2.5 V             :         : 1         : N
+pinovary[19]                 : G3        : output : 2.5 V             :         : 1         : N
+pinovary[25]                 : G4        : output : 2.5 V             :         : 1         : N
+pinors[21]                   : G5        : output : 2.5 V             :         : 1         : N
+pinovarx[21]                 : G6        : output : 2.5 V             :         : 1         : N
+pinord[15]                   : G7        : output : 2.5 V             :         : 8         : N
+pinort[17]                   : G8        : output : 2.5 V             :         : 8         : N
+pinort[22]                   : G9        : output : 2.5 V             :         : 8         : N
+pinoinstrucao[27]            : G10       : output : 2.5 V             :         : 8         : N
+pinovary[9]                  : G11       : output : 2.5 V             :         : 8         : N
+pinodados[24]                : G12       : output : 2.5 V             :         : 8         : N
+pinovary[29]                 : G13       : output : 2.5 V             :         : 8         : N
+pinodados[28]                : G14       : output : 2.5 V             :         : 8         : N
+pinors[8]                    : G15       : output : 2.5 V             :         : 7         : N
+pinoopcode[1]                : G16       : output : 2.5 V             :         : 7         : N
+pinoultimo[26]               : G17       : output : 2.5 V             :         : 7         : N
+pinoultimo[15]               : G18       : output : 2.5 V             :         : 7         : N
+pinoresultado[15]            : G19       : output : 2.5 V             :         : 7         : N
+pinoultimo[1]                : G20       : output : 2.5 V             :         : 7         : N
+pinoresultado[25]            : G21       : output : 2.5 V             :         : 7         : N
+pinors[30]                   : G22       : output : 2.5 V             :         : 7         : N
+RESERVED_INPUT               : G23       :        :                   :         : 6         :
+RESERVED_INPUT               : G24       :        :                   :         : 6         :
+RESERVED_INPUT               : G25       :        :                   :         : 6         :
+RESERVED_INPUT               : G26       :        :                   :         : 6         :
+RESERVED_INPUT               : G27       :        :                   :         : 6         :
+RESERVED_INPUT               : G28       :        :                   :         : 6         :
+VCCIO1                       : H1        : power  :                   : 2.5V    : 1         :
+GND                          : H2        : gnd    :                   :         :           :
+pinort[1]                    : H3        : output : 2.5 V             :         : 1         : N
+pinort[3]                    : H4        : output : 2.5 V             :         : 1         : N
+pinovary[28]                 : H5        : output : 2.5 V             :         : 1         : N
+pinort[4]                    : H6        : output : 2.5 V             :         : 1         : N
+pinors[0]                    : H7        : output : 2.5 V             :         : 1         : N
+pinodados[4]                 : H8        : output : 2.5 V             :         : 8         : N
+GNDA3                        : H9        : gnd    :                   :         :           :
+pinovary[12]                 : H10       : output : 2.5 V             :         : 8         : N
+VCCIO8                       : H11       : power  :                   : 2.5V    : 8         :
+pinort[9]                    : H12       : output : 2.5 V             :         : 8         : N
+pinovary[16]                 : H13       : output : 2.5 V             :         : 8         : N
+pinord[24]                   : H14       : output : 2.5 V             :         : 8         : N
+pinoultimo[30]               : H15       : output : 2.5 V             :         : 7         : N
+pinodados[14]                : H16       : output : 2.5 V             :         : 7         : N
+pinoinstrucao[28]            : H17       : output : 2.5 V             :         : 7         : N
+VCCIO7                       : H18       : power  :                   : 2.5V    : 7         :
+pinoultimo[25]               : H19       : output : 2.5 V             :         : 7         : N
+GNDA2                        : H20       : gnd    :                   :         :           :
+pinovarx[30]                 : H21       : output : 2.5 V             :         : 7         : N
+RESERVED_INPUT               : H22       :        :                   :         : 6         :
+RESERVED_INPUT               : H23       :        :                   :         : 6         :
+RESERVED_INPUT               : H24       :        :                   :         : 6         :
+RESERVED_INPUT               : H25       :        :                   :         : 6         :
+RESERVED_INPUT               : H26       :        :                   :         : 6         :
+GND                          : H27       : gnd    :                   :         :           :
+VCCIO6                       : H28       : power  :                   : 2.5V    : 6         :
+clock                        : J1        : input  : 2.5 V             :         : 1         : N
+GND                          : J2        : gnd    :                   :         :           :
+pinovary[10]                 : J3        : output : 2.5 V             :         : 1         : N
+pinovary[4]                  : J4        : output : 2.5 V             :         : 1         : N
+pinovary[7]                  : J5        : output : 2.5 V             :         : 1         : N
+pinoalucrt[0]                : J6        : output : 2.5 V             :         : 1         : N
+pinosaidapc[0]               : J7        : output : 2.5 V             :         : 1         : N
+VCCA3                        : J8        : power  :                   : 2.5V    :           :
+VCCD_PLL3                    : J9        : power  :                   : 1.2V    :           :
+pinovary[20]                 : J10       : output : 2.5 V             :         : 8         : N
+GND                          : J11       : gnd    :                   :         :           :
+pinort[28]                   : J12       : output : 2.5 V             :         : 8         : N
+pinodados[12]                : J13       : output : 2.5 V             :         : 8         : N
+pinort[11]                   : J14       : output : 2.5 V             :         : 8         : N
+pinort[14]                   : J15       : output : 2.5 V             :         : 7         : N
+pinors[31]                   : J16       : output : 2.5 V             :         : 7         : N
+pinovarx[31]                 : J17       : output : 2.5 V             :         : 7         : N
+GND                          : J18       : gnd    :                   :         :           :
+pinoopcode[4]                : J19       : output : 2.5 V             :         : 7         : N
+VCCD_PLL2                    : J20       : power  :                   : 1.2V    :           :
+VCCA2                        : J21       : power  :                   : 2.5V    :           :
+RESERVED_INPUT               : J22       :        :                   :         : 6         :
+RESERVED_INPUT               : J23       :        :                   :         : 6         :
+RESERVED_INPUT               : J24       :        :                   :         : 6         :
+pinoinstrucao[23]            : J25       : output : 2.5 V             :         : 6         : N
+pinosaidapc[12]              : J26       : output : 2.5 V             :         : 6         : N
+GND+                         : J27       :        :                   :         : 6         :
+GND+                         : J28       :        :                   :         : 6         :
+pinort[25]                   : K1        : output : 2.5 V             :         : 1         : N
+pinoalucrt[1]                : K2        : output : 2.5 V             :         : 1         : N
+pinort[10]                   : K3        : output : 2.5 V             :         : 1         : N
+pinovary[11]                 : K4        : output : 2.5 V             :         : 1         : N
+VCCIO1                       : K5        : power  :                   : 2.5V    : 1         :
+GND                          : K6        : gnd    :                   :         :           :
+pinort[2]                    : K7        : output : 2.5 V             :         : 1         : N
+pinovary[26]                 : K8        : output : 2.5 V             :         : 1         : N
+VCCINT                       : K9        : power  :                   : 1.2V    :           :
+GND                          : K10       : gnd    :                   :         :           :
+VCCINT                       : K11       : power  :                   : 1.2V    :           :
+GND                          : K12       : gnd    :                   :         :           :
+VCCINT                       : K13       : power  :                   : 1.2V    :           :
+GND                          : K14       : gnd    :                   :         :           :
+VCCINT                       : K15       : power  :                   : 1.2V    :           :
+GND                          : K16       : gnd    :                   :         :           :
+VCCINT                       : K17       : power  :                   : 1.2V    :           :
+GND                          : K18       : gnd    :                   :         :           :
+VCCINT                       : K19       : power  :                   : 1.2V    :           :
+GND                          : K20       : gnd    :                   :         :           :
+RESERVED_INPUT               : K21       :        :                   :         : 6         :
+RESERVED_INPUT               : K22       :        :                   :         : 6         :
+GND                          : K23       : gnd    :                   :         :           :
+VCCIO6                       : K24       : power  :                   : 2.5V    : 6         :
+RESERVED_INPUT               : K25       :        :                   :         : 6         :
+RESERVED_INPUT               : K26       :        :                   :         : 6         :
+RESERVED_INPUT               : K27       :        :                   :         : 6         :
+RESERVED_INPUT               : K28       :        :                   :         : 6         :
+pinovary[21]                 : L1        : output : 2.5 V             :         : 1         : N
+pinovary[30]                 : L2        : output : 2.5 V             :         : 1         : N
+pinovary[24]                 : L3        : output : 2.5 V             :         : 1         : N
+pinovary[23]                 : L4        : output : 2.5 V             :         : 1         : N
+pinovary[5]                  : L5        : output : 2.5 V             :         : 1         : N
+pinosaidapc[1]               : L6        : output : 2.5 V             :         : 1         : N
+pinosaidapc[3]               : L7        : output : 2.5 V             :         : 1         : N
+pinovary[22]                 : L8        : output : 2.5 V             :         : 1         : N
+GND                          : L9        : gnd    :                   :         :           :
+VCCINT                       : L10       : power  :                   : 1.2V    :           :
+GND                          : L11       : gnd    :                   :         :           :
+VCCINT                       : L12       : power  :                   : 1.2V    :           :
+GND                          : L13       : gnd    :                   :         :           :
+VCCINT                       : L14       : power  :                   : 1.2V    :           :
+GND                          : L15       : gnd    :                   :         :           :
+VCCINT                       : L16       : power  :                   : 1.2V    :           :
+GND                          : L17       : gnd    :                   :         :           :
+VCCINT                       : L18       : power  :                   : 1.2V    :           :
+GND                          : L19       : gnd    :                   :         :           :
+VCCINT                       : L20       : power  :                   : 1.2V    :           :
+RESERVED_INPUT               : L21       :        :                   :         : 6         :
+RESERVED_INPUT               : L22       :        :                   :         : 6         :
+RESERVED_INPUT               : L23       :        :                   :         : 6         :
+RESERVED_INPUT               : L24       :        :                   :         : 6         :
+RESERVED_INPUT               : L25       :        :                   :         : 6         :
+pinosaidapc[24]              : L26       : output : 2.5 V             :         : 6         : N
+pinoinstrucao[13]            : L27       : output : 2.5 V             :         : 6         : N
+RESERVED_INPUT               : L28       :        :                   :         : 6         :
+reseta                       : M1        : input  : 2.5 V             :         : 1         : N
+pinovary[31]                 : M2        : output : 2.5 V             :         : 1         : N
+pinovary[3]                  : M3        : output : 2.5 V             :         : 1         : N
+pinovary[27]                 : M4        : output : 2.5 V             :         : 1         : N
+pinovary[1]                  : M5        : output : 2.5 V             :         : 1         : N
+nSTATUS                      : M6        :        :                   :         : 1         :
+pinort[6]                    : M7        : output : 2.5 V             :         : 1         : N
+pinort[0]                    : M8        : output : 2.5 V             :         : 1         : N
+VCCINT                       : M9        : power  :                   : 1.2V    :           :
+GND                          : M10       : gnd    :                   :         :           :
+VCCINT                       : M11       : power  :                   : 1.2V    :           :
+GND                          : M12       : gnd    :                   :         :           :
+VCCINT                       : M13       : power  :                   : 1.2V    :           :
+GND                          : M14       : gnd    :                   :         :           :
+VCCINT                       : M15       : power  :                   : 1.2V    :           :
+GND                          : M16       : gnd    :                   :         :           :
+VCCINT                       : M17       : power  :                   : 1.2V    :           :
+GND                          : M18       : gnd    :                   :         :           :
+VCCINT                       : M19       : power  :                   : 1.2V    :           :
+GND                          : M20       : gnd    :                   :         :           :
+RESERVED_INPUT               : M21       :        :                   :         : 6         :
+MSEL2                        : M22       :        :                   :         : 6         :
+RESERVED_INPUT               : M23       :        :                   :         : 6         :
+RESERVED_INPUT               : M24       :        :                   :         : 6         :
+pinoinstrucao[7]             : M25       : output : 2.5 V             :         : 6         : N
+RESERVED_INPUT               : M26       :        :                   :         : 6         :
+RESERVED_INPUT               : M27       :        :                   :         : 6         :
+RESERVED_INPUT               : M28       :        :                   :         : 6         :
+VCCIO1                       : N1        : power  :                   : 2.5V    : 1         :
+GND                          : N2        : gnd    :                   :         :           :
+pinord[31]                   : N3        : output : 2.5 V             :         : 1         : N
+pinosaidapc[2]               : N4        : output : 2.5 V             :         : 1         : N
+VCCIO1                       : N5        : power  :                   : 2.5V    : 1         :
+GND                          : N6        : gnd    :                   :         :           :
+~ALTERA_DATA0~ / RESERVED_INPUT_WITH_WEAK_PULLUP : N7        : input  : 2.5 V             :         : 1         : N
+pinovarx[1]                  : N8        : output : 2.5 V             :         : 1         : N
+GND                          : N9        : gnd    :                   :         :           :
+VCCINT                       : N10       : power  :                   : 1.2V    :           :
+GND                          : N11       : gnd    :                   :         :           :
+VCCINT                       : N12       : power  :                   : 1.2V    :           :
+GND                          : N13       : gnd    :                   :         :           :
+VCCINT                       : N14       : power  :                   : 1.2V    :           :
+GND                          : N15       : gnd    :                   :         :           :
+VCCINT                       : N16       : power  :                   : 1.2V    :           :
+GND                          : N17       : gnd    :                   :         :           :
+VCCINT                       : N18       : power  :                   : 1.2V    :           :
+GND                          : N19       : gnd    :                   :         :           :
+VCCINT                       : N20       : power  :                   : 1.2V    :           :
+RESERVED_INPUT               : N21       :        :                   :         : 6         :
+MSEL0                        : N22       :        :                   :         : 6         :
+GND                          : N23       : gnd    :                   :         :           :
+VCCIO6                       : N24       : power  :                   : 2.5V    : 6         :
+RESERVED_INPUT               : N25       :        :                   :         : 6         :
+RESERVED_INPUT               : N26       :        :                   :         : 6         :
+GND                          : N27       : gnd    :                   :         :           :
+VCCIO6                       : N28       : power  :                   : 2.5V    : 6         :
+pinors[1]                    : P1        : output : 2.5 V             :         : 1         : N
+pinosaidapc[23]              : P2        : output : 2.5 V             :         : 1         : N
+~ALTERA_DCLK~                : P3        : output : 2.5 V             :         : 1         : N
+nCONFIG                      : P4        :        :                   :         : 1         :
+TCK                          : P5        : input  :                   :         : 1         :
+TDO                          : P6        : output :                   :         : 1         :
+TDI                          : P7        : input  :                   :         : 1         :
+TMS                          : P8        : input  :                   :         : 1         :
+VCCINT                       : P9        : power  :                   : 1.2V    :           :
+GND                          : P10       : gnd    :                   :         :           :
+VCCINT                       : P11       : power  :                   : 1.2V    :           :
+GND                          : P12       : gnd    :                   :         :           :
+VCCINT                       : P13       : power  :                   : 1.2V    :           :
+GND                          : P14       : gnd    :                   :         :           :
+VCCINT                       : P15       : power  :                   : 1.2V    :           :
+GND                          : P16       : gnd    :                   :         :           :
+VCCINT                       : P17       : power  :                   : 1.2V    :           :
+GND                          : P18       : gnd    :                   :         :           :
+VCCINT                       : P19       : power  :                   : 1.2V    :           :
+GND                          : P20       : gnd    :                   :         :           :
+RESERVED_INPUT               : P21       :        :                   :         : 5         :
+MSEL3                        : P22       :        :                   :         : 6         :
+MSEL1                        : P23       :        :                   :         : 6         :
+CONF_DONE                    : P24       :        :                   :         : 6         :
+RESERVED_INPUT               : P25       :        :                   :         : 6         :
+RESERVED_INPUT               : P26       :        :                   :         : 6         :
+RESERVED_INPUT               : P27       :        :                   :         : 6         :
+~ALTERA_nCEO~ / RESERVED_OUTPUT_OPEN_DRAIN : P28       : output : 2.5 V             :         : 6         : N
+pinodados[26]                : R1        : output : 2.5 V             :         : 2         : N
+pinosaidapc[14]              : R2        : output : 2.5 V             :         : 2         : N
+pinosaidapc[30]              : R3        : output : 2.5 V             :         : 2         : N
+pinort[18]                   : R4        : output : 2.5 V             :         : 2         : N
+pinord[18]                   : R5        : output : 2.5 V             :         : 2         : N
+pinosaidapc[26]              : R6        : output : 2.5 V             :         : 2         : N
+pinosaidapc[7]               : R7        : output : 2.5 V             :         : 2         : N
+nCE                          : R8        :        :                   :         : 1         :
+GND                          : R9        : gnd    :                   :         :           :
+VCCINT                       : R10       : power  :                   : 1.2V    :           :
+GND                          : R11       : gnd    :                   :         :           :
+VCCINT                       : R12       : power  :                   : 1.2V    :           :
+GND                          : R13       : gnd    :                   :         :           :
+VCCINT                       : R14       : power  :                   : 1.2V    :           :
+GND                          : R15       : gnd    :                   :         :           :
+VCCINT                       : R16       : power  :                   : 1.2V    :           :
+GND                          : R17       : gnd    :                   :         :           :
+VCCINT                       : R18       : power  :                   : 1.2V    :           :
+GND                          : R19       : gnd    :                   :         :           :
+VCCINT                       : R20       : power  :                   : 1.2V    :           :
+RESERVED_INPUT               : R21       :        :                   :         : 5         :
+pinoinstrucao[9]             : R22       : output : 2.5 V             :         : 5         : N
+RESERVED_INPUT               : R23       :        :                   :         : 5         :
+pinoinstrucao[18]            : R24       : output : 2.5 V             :         : 5         : N
+RESERVED_INPUT               : R25       :        :                   :         : 5         :
+RESERVED_INPUT               : R26       :        :                   :         : 5         :
+RESERVED_INPUT               : R27       :        :                   :         : 5         :
+RESERVED_INPUT               : R28       :        :                   :         : 5         :
+VCCIO2                       : T1        : power  :                   : 2.5V    : 2         :
+GND                          : T2        : gnd    :                   :         :           :
+pinord[3]                    : T3        : output : 2.5 V             :         : 2         : N
+pinord[28]                   : T4        : output : 2.5 V             :         : 2         : N
+VCCIO2                       : T5        : power  :                   : 2.5V    : 2         :
+GND                          : T6        : gnd    :                   :         :           :
+pinosaidapc[5]               : T7        : output : 2.5 V             :         : 2         : N
+pinord[16]                   : T8        : output : 2.5 V             :         : 2         : N
+VCCINT                       : T9        : power  :                   : 1.2V    :           :
+GND                          : T10       : gnd    :                   :         :           :
+VCCINT                       : T11       : power  :                   : 1.2V    :           :
+GND                          : T12       : gnd    :                   :         :           :
+VCCINT                       : T13       : power  :                   : 1.2V    :           :
+GND                          : T14       : gnd    :                   :         :           :
+VCCINT                       : T15       : power  :                   : 1.2V    :           :
+GND                          : T16       : gnd    :                   :         :           :
+VCCINT                       : T17       : power  :                   : 1.2V    :           :
+GND                          : T18       : gnd    :                   :         :           :
+VCCINT                       : T19       : power  :                   : 1.2V    :           :
+GND                          : T20       : gnd    :                   :         :           :
+RESERVED_INPUT               : T21       :        :                   :         : 5         :
+RESERVED_INPUT               : T22       :        :                   :         : 5         :
+GND                          : T23       : gnd    :                   :         :           :
+VCCIO5                       : T24       : power  :                   : 2.5V    : 5         :
+RESERVED_INPUT               : T25       :        :                   :         : 5         :
+RESERVED_INPUT               : T26       :        :                   :         : 5         :
+GND                          : T27       : gnd    :                   :         :           :
+VCCIO5                       : T28       : power  :                   : 2.5V    : 5         :
+pinosaidapc[22]              : U1        : output : 2.5 V             :         : 2         : N
+pinort[13]                   : U2        : output : 2.5 V             :         : 2         : N
+pinosaidapc[20]              : U3        : output : 2.5 V             :         : 2         : N
+pinort[21]                   : U4        : output : 2.5 V             :         : 2         : N
+pinovarx[27]                 : U5        : output : 2.5 V             :         : 2         : N
+pinors[4]                    : U6        : output : 2.5 V             :         : 2         : N
+pinosaidapc[28]              : U7        : output : 2.5 V             :         : 2         : N
+pinort[30]                   : U8        : output : 2.5 V             :         : 2         : N
+GND                          : U9        : gnd    :                   :         :           :
+VCCINT                       : U10       : power  :                   : 1.2V    :           :
+GND                          : U11       : gnd    :                   :         :           :
+VCCINT                       : U12       : power  :                   : 1.2V    :           :
+GND                          : U13       : gnd    :                   :         :           :
+VCCINT                       : U14       : power  :                   : 1.2V    :           :
+GND                          : U15       : gnd    :                   :         :           :
+VCCINT                       : U16       : power  :                   : 1.2V    :           :
+GND                          : U17       : gnd    :                   :         :           :
+VCCINT                       : U18       : power  :                   : 1.2V    :           :
+GND                          : U19       : gnd    :                   :         :           :
+VCCINT                       : U20       : power  :                   : 1.2V    :           :
+RESERVED_INPUT               : U21       :        :                   :         : 5         :
+RESERVED_INPUT               : U22       :        :                   :         : 5         :
+RESERVED_INPUT               : U23       :        :                   :         : 5         :
+RESERVED_INPUT               : U24       :        :                   :         : 5         :
+RESERVED_INPUT               : U25       :        :                   :         : 5         :
+RESERVED_INPUT               : U26       :        :                   :         : 5         :
+RESERVED_INPUT               : U27       :        :                   :         : 5         :
+RESERVED_INPUT               : U28       :        :                   :         : 5         :
+pinord[7]                    : V1        : output : 2.5 V             :         : 2         : N
+pinord[26]                   : V2        : output : 2.5 V             :         : 2         : N
+pinors[18]                   : V3        : output : 2.5 V             :         : 2         : N
+pinovarx[18]                 : V4        : output : 2.5 V             :         : 2         : N
+pinoultimo[14]               : V5        : output : 2.5 V             :         : 2         : N
+pinoresultado[14]            : V6        : output : 2.5 V             :         : 2         : N
+pinoresultado[10]            : V7        : output : 2.5 V             :         : 2         : N
+pinoultimo[20]               : V8        : output : 2.5 V             :         : 2         : N
+VCCINT                       : V9        : power  :                   : 1.2V    :           :
+GND                          : V10       : gnd    :                   :         :           :
+VCCINT                       : V11       : power  :                   : 1.2V    :           :
+GND                          : V12       : gnd    :                   :         :           :
+VCCINT                       : V13       : power  :                   : 1.2V    :           :
+GND                          : V14       : gnd    :                   :         :           :
+VCCINT                       : V15       : power  :                   : 1.2V    :           :
+GND                          : V16       : gnd    :                   :         :           :
+VCCINT                       : V17       : power  :                   : 1.2V    :           :
+GND                          : V18       : gnd    :                   :         :           :
+VCCINT                       : V19       : power  :                   : 1.2V    :           :
+GND                          : V20       : gnd    :                   :         :           :
+RESERVED_INPUT               : V21       :        :                   :         : 5         :
+RESERVED_INPUT               : V22       :        :                   :         : 5         :
+RESERVED_INPUT               : V23       :        :                   :         : 5         :
+RESERVED_INPUT               : V24       :        :                   :         : 5         :
+RESERVED_INPUT               : V25       :        :                   :         : 5         :
+RESERVED_INPUT               : V26       :        :                   :         : 5         :
+RESERVED_INPUT               : V27       :        :                   :         : 5         :
+RESERVED_INPUT               : V28       :        :                   :         : 5         :
+pinovarx[4]                  : W1        : output : 2.5 V             :         : 2         : N
+pinosaidapc[19]              : W2        : output : 2.5 V             :         : 2         : N
+pinoresultado[29]            : W3        : output : 2.5 V             :         : 2         : N
+pinoresultado[20]            : W4        : output : 2.5 V             :         : 2         : N
+VCCIO2                       : W5        : power  :                   : 2.5V    : 2         :
+GND                          : W6        : gnd    :                   :         :           :
+pinors[17]                   : W7        : output : 2.5 V             :         : 2         : N
+pinoultimo[13]               : W8        : output : 2.5 V             :         : 2         : N
+GND                          : W9        : gnd    :                   :         :           :
+VCCINT                       : W10       : power  :                   : 1.2V    :           :
+GND                          : W11       : gnd    :                   :         :           :
+VCCINT                       : W12       : power  :                   : 1.2V    :           :
+GND                          : W13       : gnd    :                   :         :           :
+VCCINT                       : W14       : power  :                   : 1.2V    :           :
+GND                          : W15       : gnd    :                   :         :           :
+VCCINT                       : W16       : power  :                   : 1.2V    :           :
+GND                          : W17       : gnd    :                   :         :           :
+VCCINT                       : W18       : power  :                   : 1.2V    :           :
+GND                          : W19       : gnd    :                   :         :           :
+VCCINT                       : W20       : power  :                   : 1.2V    :           :
+RESERVED_INPUT               : W21       :        :                   :         : 5         :
+RESERVED_INPUT               : W22       :        :                   :         : 5         :
+GND                          : W23       : gnd    :                   :         :           :
+VCCIO5                       : W24       : power  :                   : 2.5V    : 5         :
+RESERVED_INPUT               : W25       :        :                   :         : 5         :
+RESERVED_INPUT               : W26       :        :                   :         : 5         :
+RESERVED_INPUT               : W27       :        :                   :         : 5         :
+RESERVED_INPUT               : W28       :        :                   :         : 5         :
+GND+                         : Y1        :        :                   :         : 2         :
+GND+                         : Y2        :        :                   :         : 2         :
+pinors[27]                   : Y3        : output : 2.5 V             :         : 2         : N
+pinodados[6]                 : Y4        : output : 2.5 V             :         : 2         : N
+pinoultimo[10]               : Y5        : output : 2.5 V             :         : 2         : N
+pinoultimo[29]               : Y6        : output : 2.5 V             :         : 2         : N
+pinoresultado[13]            : Y7        : output : 2.5 V             :         : 2         : N
+VCCA1                        : Y8        : power  :                   : 2.5V    :           :
+VCCD_PLL1                    : Y9        : power  :                   : 1.2V    :           :
+pinoultimo[31]               : Y10       : output : 2.5 V             :         : 3         : N
+GND                          : Y11       : gnd    :                   :         :           :
+pinodados[18]                : Y12       : output : 2.5 V             :         : 3         : N
+pinoinstrucao[29]            : Y13       : output : 2.5 V             :         : 3         : N
+pinors[19]                   : Y14       : output : 2.5 V             :         : 3         : N
+pinoopcode[3]                : Y15       : output : 2.5 V             :         : 3         : N
+RESERVED_INPUT               : Y16       :        :                   :         : 4         :
+RESERVED_INPUT               : Y17       :        :                   :         : 4         :
+GND                          : Y18       : gnd    :                   :         :           :
+pinoinstrucao[20]            : Y19       : output : 2.5 V             :         : 4         : N
+VCCD_PLL4                    : Y20       : power  :                   : 1.2V    :           :
+VCCA4                        : Y21       : power  :                   : 2.5V    :           :
+RESERVED_INPUT               : Y22       :        :                   :         : 5         :
+RESERVED_INPUT               : Y23       :        :                   :         : 5         :
+RESERVED_INPUT               : Y24       :        :                   :         : 5         :
+RESERVED_INPUT               : Y25       :        :                   :         : 5         :
+pinoinstrucao[24]            : Y26       : output : 2.5 V             :         : 5         : N
+GND+                         : Y27       :        :                   :         : 5         :
+GND+                         : Y28       :        :                   :         : 5         :
