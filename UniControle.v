@@ -1,6 +1,6 @@
 module UniControle (
     opcode,
-    rs,
+    rd,
     imediato,
     zero,
     negativo,
@@ -18,9 +18,9 @@ module UniControle (
     jumpE,
     halt
 );
-    
+
 input [4:0] opcode;
-input [31:0] rs;
+input [31:0] rd;
 input [31:0] imediato;
 input zero, negativo;
 
@@ -295,7 +295,7 @@ always @(opcode) begin
             selR=1'bx;
             selResultado=1'bx;
             escreveM=1'b0;
-            jumpE=rs;
+            jumpE=rd;
             jump=2'b01;
             halt=1'b0;
         end
@@ -315,13 +315,13 @@ always @(opcode) begin
         5'b10101: begin // JZ
             selDados=1'bx;
             escreveR=1'b0;
-            aluControl=3'bxxx;
+            aluControl=3'b000;
             selE=2'bxx;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
             escreveM=1'b0;
-            jumpE=rs;
+            jumpE=rd;
             if (zero == 1'b1) jump = 2'b01;
             else jump = 2'b00;
             halt=1'b0;
@@ -343,13 +343,13 @@ always @(opcode) begin
         5'b10111: begin // JN
             selDados=1'bx;
             escreveR=1'b0;
-            aluControl=3'bxxx;
+            aluControl=3'b000;
             selE=2'bxx;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
             escreveM=1'b0;
-            jumpE=rs;
+            jumpE=rd;
             if (negativo == 1'b1) jump = 2'b01;
             else jump = 2'b00;
             halt=1'b0;
@@ -357,7 +357,7 @@ always @(opcode) begin
         5'b11000: begin // JNI
             selDados=1'bx;
             escreveR=1'b0;
-            aluControl=3'bxxx;
+            aluControl=3'b000;
             selE=1'b1;
             selVarY=1'bx;
             selR=1'bx;
@@ -382,7 +382,7 @@ always @(opcode) begin
             halt=1'b0;
         end
     endcase
-	 
+
 end
 
 endmodule

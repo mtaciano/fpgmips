@@ -21,19 +21,19 @@ always @(selecao or var_X or var_Y) begin
         3'b010: resultado = var_X - var_Y;
         3'b011: resultado = var_X & var_Y;
         3'b100: resultado = var_X | var_Y;
-        3'b101: resultado = var_X << var_Y;
-        3'b110: resultado = var_X >> var_Y;
+        3'b101: resultado = var_X * var_Y; // era >>
+        3'b110: resultado = var_X / var_Y; // era <<
         3'b111: resultado = ~var_X;
     endcase
-	 
-	 if (resultado == 0) begin
+
+    if (resultado == 0) begin
         flag_Z = 1;
     end else begin
         flag_Z = 0;
     end
-	 
-	 flag_N = resultado[31];
-	 
+
+    flag_N = resultado[31];
+
 end
 
 endmodule

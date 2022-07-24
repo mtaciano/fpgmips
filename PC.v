@@ -26,7 +26,7 @@ always @(posedge clock) begin
     end else if (jump == 1) begin
         saida = endereco;
     end else if (halt == 1) begin
-        saida = saida;
+        saida = saida; // Continua rodando o HLT
     end else begin
         saida = saida + 1; // O PC nesse processador precisa adicionar apenas 1
     end

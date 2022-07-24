@@ -19,7 +19,7 @@ always @(*) begin
         1'b1: begin
             saida = { {10{entrada_2[21]}}, entrada_2};
         end
-        default: saida = 32'b0; 
+        default: saida = 32'b0;
     endcase
 end
 
