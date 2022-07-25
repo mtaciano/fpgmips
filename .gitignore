@@ -8,3 +8,4 @@ simulation/
 *.rpt
 *.summary
 *.smsg
+out_bin.txt
