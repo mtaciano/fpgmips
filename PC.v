@@ -1,7 +1,6 @@
 module PC (
     clock,
     jump,
-    pcControl,
     reseta,
     endereco,
     saida,
@@ -11,7 +10,6 @@ module PC (
 input halt;
 input clock;
 input jump;
-input pcControl;
 input reseta;
 input [31:0] endereco;
 
