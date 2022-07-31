@@ -97,9 +97,9 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 216 112)
 		(output)
-		(text "selE" (rect 0 0 17 12)(font "Arial" ))
-		(text "selE" (rect 178 107 195 119)(font "Arial" ))
-		(line (pt 216 112)(pt 200 112)(line_width 1))
+		(text "selE[1..0]" (rect 0 0 36 12)(font "Arial" ))
+		(text "selE[1..0]" (rect 159 107 195 119)(font "Arial" ))
+		(line (pt 216 112)(pt 200 112)(line_width 3))
 	)
 	(port
 		(pt 216 128)

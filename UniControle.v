@@ -28,7 +28,7 @@ output reg escreveR;
 output reg selR;
 output reg escreveM;
 output reg jump;
-output reg selE;
+output reg [1:0] selE;
 output reg selVarY;
 output reg selResultado;
 output reg selDados;
@@ -43,7 +43,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'bxxx;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -57,7 +57,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'bxxx;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -71,7 +71,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b0;
             escreveR=1'b1;
             aluControl=3'bxxx;
-            selE=1'b0;
+            selE=2'b10;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -85,7 +85,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b0;
             aluControl=3'b000;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'b0;
             selResultado=1'b0;
@@ -99,7 +99,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b011;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'b0;
             selR=1'b0;
             selResultado=1'b0;
@@ -113,7 +113,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b011;
-            selE=1'b0;
+            selE=2'b00;
             selVarY=1'b1;
             selR=1'b0;
             selResultado=1'b0;
@@ -127,7 +127,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b100;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'b0;
             selR=1'b0;
             selResultado=1'b0;
@@ -141,7 +141,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b100;
-            selE=1'b0;
+            selE=2'b00;
             selVarY=1'b1;
             selR=1'b0;
             selResultado=1'b0;
@@ -155,7 +155,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b101;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'b0;
             selR=1'b0;
             selResultado=1'b0;
@@ -169,7 +169,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b110;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'b0;
             selR=1'b0;
             selResultado=1'b0;
@@ -183,7 +183,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b111;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'b0;
             selResultado=1'b0;
@@ -197,7 +197,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b001;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'b0;
             selR=1'b0;
             selResultado=1'b0;
@@ -211,7 +211,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b001;
-            selE=1'b0;
+            selE=2'b00;
             selVarY=1'b1;
             selR=1'b0;
             selResultado=1'b0;
@@ -225,7 +225,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b010;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'b0;
             selR=1'b0;
             selResultado=1'b0;
@@ -239,7 +239,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b010;
-            selE=1'b0;
+            selE=2'b00;
             selVarY=1'b1;
             selR=1'b0;
             selResultado=1'b0;
@@ -253,7 +253,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'bxxx;
-            selE=1'b1;
+            selE=2'b01;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'b1;
@@ -267,7 +267,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'b000;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'b0;
             selResultado=1'b0;
@@ -281,7 +281,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b1;
             escreveR=1'b1;
             aluControl=3'bxxx;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'b1;
             selResultado=1'b1;
@@ -295,7 +295,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b0;
             escreveR=1'b1;
             aluControl=3'bxxx;
-            selE=1'b1;
+            selE=2'b01;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -309,7 +309,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'bxxx;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -323,7 +323,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'bxxx;
-            selE=1'b1;
+            selE=2'b01;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -337,7 +337,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'b000;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -352,7 +352,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'bxxx;
-            selE=1'b1;
+            selE=2'b01;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -367,7 +367,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'b000;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -382,7 +382,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'b000;
-            selE=1'b1;
+            selE=2'b01;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -397,7 +397,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'bx;
             escreveR=1'b0;
             aluControl=3'b000;
-            selE=1'bx;
+            selE=2'bxx;
             selVarY=1'bx;
             selR=1'bx;
             selResultado=1'bx;
@@ -419,7 +419,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             selDados=1'b0;
             escreveR=1'b0;
             aluControl=3'b000;
-            selE=1'b0;
+            selE=2'b00;
             selVarY=1'b0;
             selR=1'b0;
             selResultado=1'b0;
