@@ -12,7 +12,7 @@ input clock, escrever;
 
 output [31:0] saida;
 
-reg [31:0] memoriaD [31:0];
+reg [31:0] memoriaD [255:0];
 
 always @(posedge clock) begin
     if (escrever) begin

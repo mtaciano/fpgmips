@@ -415,6 +415,34 @@ always @(opcode or rd or imediato or zero or negativo) begin
             halt=1'b0;
             escreverOut=1'b0;
         end
+		  5'b11010: begin // STORER (RS RD)
+            selDados=1'b1;
+            escreveR=1'b0;
+            aluControl=3'b000;
+            selE=2'bxx;
+            selVarY=1'bx;
+            selR=1'b0;
+            selResultado=1'b0;
+            escreveM=1'b1;
+            jumpE=32'b0;
+            jump=1'b0;
+            halt=1'b0;
+            escreverOut=1'b0;
+        end
+		  5'b11011: begin // LOADR (RD RS)
+            selDados=1'b1;
+            escreveR=1'b1;
+            aluControl=3'b000;
+            selE=2'bxx;
+            selVarY=1'bx;
+            selR=1'b1;
+            selResultado=1'b0;
+            escreveM=1'b0;
+            jumpE=32'b0;
+            jump=1'b0;
+            halt=1'b0;
+            escreverOut=1'b0;
+        end
         default: begin
             selDados=1'b0;
             escreveR=1'b0;
