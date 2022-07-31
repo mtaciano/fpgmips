@@ -16,7 +16,8 @@ output reg [3:0] setseg2;
 output reg [3:0] setseg3;
 output reg [3:0] setseg4;
 
-always @(entrada) begin
+always @(entrada or escrever) begin
+	 i = 15;
     setseg1 = 4'b0000;
     setseg2 = 4'b0000;
     setseg3 = 4'b0000;

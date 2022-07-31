@@ -22,7 +22,13 @@ module verilog(
     HEX0,
     HEX1,
     HEX2,
-    HEX3
+    HEX3,
+	 saida_opcode,
+	 alu_out,
+	 flag_z,
+	 flag_n,
+	 var_x,
+	 var_y
 );
 
 
@@ -31,6 +37,12 @@ output reg [6:0] HEX3;
 output reg [6:0] HEX2;
 output reg [6:0] HEX1;
 output reg [6:0] HEX0;
+output reg [4:0] saida_opcode;
+output reg [31:0] alu_out;
+output reg [31:0] var_x;
+output reg [31:0] var_y;
+output reg flag_z;
+output reg flag_n;
 
 wire [2:0] alucrt;
 wire [31:0] dados;
@@ -282,6 +294,13 @@ always @(*) begin
         HEX0[5],
         HEX0[6]
     } = {seg1_a, seg1_b, seg1_c, seg1_d, seg1_e, seg1_f, seg1_g};
+	 
+    saida_opcode = instrucao[31:27];
+	 flag_n = n;
+	 flag_z = z;
+	 alu_out = resultado;
+	 var_x = rs;
+	 var_y = vary;
 end
 
 endmodule
