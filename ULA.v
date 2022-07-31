@@ -8,9 +8,9 @@ module ULA (
 );
 
 input [2:0] selecao;
-input [31:0] var_X, var_Y;
+input signed [31:0] var_X, var_Y;
 
-output reg [31:0] resultado;
+output reg signed [31:0] resultado;
 output reg flag_N;
 output reg flag_Z;
 

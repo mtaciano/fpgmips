@@ -10,7 +10,7 @@ integer inicializado = 0;
 
 output [31:0] saida;
 
-reg [31:0] memoriaI [31:0];
+reg [31:0] memoriaI [255:0];
 
 always @(posedge clock) begin
     if (~inicializado) begin
