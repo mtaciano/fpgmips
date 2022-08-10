@@ -28,4 +28,4 @@ DATE = "22:28:53  February 10, 2021"
 
 # Revisions
 
-PROJECT_REVISION = "verilog"
+PROJECT_REVISION = "CPU"

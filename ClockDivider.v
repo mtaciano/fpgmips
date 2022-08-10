@@ -6,6 +6,7 @@ module ClockDivider(
 
 input clockIn;
 input halt;
+
 output reg clockOut;
 
 reg [27:0] counter = 28'd0;

@@ -1,11 +1,14 @@
 db/
 qar_info.*
-verilog.done
-verilog.restore.*
 incremental_db/
 simulation/
+*.done
+*.restore.*
 *.bak
 *.rpt
 *.summary
 *.smsg
+*.vwf
+*.sof
 out_bin.txt
+.vscode

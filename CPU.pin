@@ -65,7 +65,7 @@
  ---------------------------------------------------------------------------------
 
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-CHIP  "verilog"  ASSIGNED TO AN: EP4CE115F29C7
+CHIP  "CPU"  ASSIGNED TO AN: EP4CE115F29C7
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
