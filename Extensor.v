@@ -2,7 +2,7 @@ module Extensor (
     selecao,
     entrada_1,
     entrada_2,
-	 entrada_in,
+    entrada_in,
     saida
 );
 
@@ -21,7 +21,7 @@ always @(*) begin
         2'b01: begin
             saida = { {10{entrada_2[21]}}, entrada_2};
         end
-		  2'b10: begin
+          2'b10: begin
             saida = { {14{entrada_in[17]}}, entrada_in};
         end
         default: saida = 32'b0;

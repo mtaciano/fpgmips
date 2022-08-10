@@ -12,14 +12,17 @@ input clock, escrever;
 
 output [31:0] saida;
 
-reg [31:0] memoriaD [255:0];
+reg [31:0] addr;
+reg [31:0] memoriaD [(2**8 - 1):0];
 
-always @(posedge clock) begin
+always @(negedge clock) begin
     if (escrever) begin
-        memoriaD[endereco] = dados;
+        memoriaD[endereco] <= dados;
     end
+
+    addr <= endereco;
 end
 
-assign saida = memoriaD[endereco];
+assign saida = memoriaD[addr];
 
 endmodule

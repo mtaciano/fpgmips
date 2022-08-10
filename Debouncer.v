@@ -8,8 +8,6 @@ input clock; //clock
 input botao; //botao
 output reg saida; // saida
 
-wire PB_down;
-wire PB_up;
 // First use two flip-flops to synchronize the PB signal the "clk" clock domain
 reg PB_sync_0;  always @(posedge clock) PB_sync_0 <= ~botao;  // invert PB to make PB_sync_0 active high
 reg PB_sync_1;  always @(posedge clock) PB_sync_1 <= PB_sync_0;
@@ -33,6 +31,4 @@ begin
     if(PB_cnt_max) saida <= ~saida;  // if the counter is maxed out, PB changed!
 end
 
-assign PB_down = ~PB_idle & PB_cnt_max & ~saida;
-assign PB_up   = ~PB_idle & PB_cnt_max &  saida;
 endmodule

@@ -6,20 +6,17 @@ module MemInst (
 
 input [31:0] endereco;
 input clock;
-integer inicializado = 0;
 
-output [31:0] saida;
+output reg [31:0] saida;
 
-reg [31:0] memoriaI [255:0];
+reg [31:0] memoriaI [(2**9 - 1):0];
 
-always @(posedge clock) begin
-    if (~inicializado) begin
-        $readmemb("out_bin.txt", memoriaI);
-
-        inicializado <= 1;
-    end
+initial begin
+    $readmemb("out_bin.txt", memoriaI);
 end
 
-assign saida = memoriaI[endereco];
+always @(posedge clock) begin
+    saida <= memoriaI[endereco];
+end
 
 endmodule

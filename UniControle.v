@@ -1,4 +1,5 @@
 module UniControle (
+    clock,
     opcode,
     rd,
     imediato,
@@ -15,9 +16,11 @@ module UniControle (
     selDados,
     jumpE,
     halt,
-   escreverOut
+    escreverOut,
+    escreverIn
 );
 
+input clock;
 input [4:0] opcode;
 input [31:0] rd;
 input [31:0] imediato;
@@ -34,10 +37,10 @@ output reg selResultado;
 output reg selDados;
 output reg [31:0] jumpE;
 output reg halt;
-
 output reg escreverOut;
+output reg escreverIn;
 
-always @(opcode or rd or imediato or zero or negativo) begin
+always @(*) begin
     case (opcode)
         5'b00000: begin // NOP
             selDados=1'bx;
@@ -52,6 +55,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b00001: begin // HLT
             selDados=1'bx;
@@ -66,6 +70,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b1;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b00010: begin // IN
             selDados=1'b0;
@@ -80,6 +85,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b1;
         end
         5'b00011: begin // OUT
             selDados=1'b1;
@@ -94,6 +100,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b1;
+				escreverIn=1'b0;
         end
         5'b00100: begin // AND
             selDados=1'b1;
@@ -108,6 +115,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b00101: begin // ANDI
             selDados=1'b1;
@@ -122,6 +130,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b00110: begin // OR
             selDados=1'b1;
@@ -136,6 +145,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b00111: begin // ORI
             selDados=1'b1;
@@ -150,6 +160,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b01000: begin // MULT
             selDados=1'b1;
@@ -164,6 +175,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b01001: begin // DIV
             selDados=1'b1;
@@ -178,6 +190,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b01010: begin // NOT
             selDados=1'b1;
@@ -192,6 +205,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b01011: begin // ADD
             selDados=1'b1;
@@ -206,6 +220,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b01100: begin // ADDI
             selDados=1'b1;
@@ -220,6 +235,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b01101: begin // SUB
             selDados=1'b1;
@@ -234,6 +250,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b01110: begin // SUBI
             selDados=1'b1;
@@ -248,6 +265,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b01111: begin // STORE
             selDados=1'bx;
@@ -262,6 +280,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b10000: begin // MOVE
             selDados=1'b1;
@@ -276,6 +295,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b10001: begin // LOAD
             selDados=1'b1;
@@ -290,6 +310,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b10010: begin // LOADI
             selDados=1'b0;
@@ -304,6 +325,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b10011: begin // J
             selDados=1'bx;
@@ -318,6 +340,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b1;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b10100: begin // JI
             selDados=1'bx;
@@ -332,6 +355,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b1;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b10101: begin // JZ
             selDados=1'bx;
@@ -347,6 +371,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             else jump = 1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b10110: begin // JZI
             selDados=1'bx;
@@ -362,6 +387,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             else jump = 1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b10111: begin // JN
             selDados=1'bx;
@@ -377,6 +403,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             else jump = 1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         5'b11000: begin // JNI
             selDados=1'bx;
@@ -392,6 +419,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             else jump = 1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
       5'b11001: begin // JP
             selDados=1'bx;
@@ -414,6 +442,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             end
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
 		  5'b11010: begin // STORER (RS RD)
             selDados=1'b1;
@@ -428,6 +457,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
 		  5'b11011: begin // LOADR (RD RS)
             selDados=1'b1;
@@ -442,6 +472,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
         default: begin
             selDados=1'b0;
@@ -456,6 +487,7 @@ always @(opcode or rd or imediato or zero or negativo) begin
             jump=1'b0;
             halt=1'b0;
             escreverOut=1'b0;
+				escreverIn=1'b0;
         end
     endcase
 

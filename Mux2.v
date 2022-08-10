@@ -15,6 +15,7 @@ always @(*) begin
     case (selecao)
         1'b0: saida = entrada_1;
         1'b1: saida = entrada_2;
+        default: saida = 32'b0;
     endcase
 end
 

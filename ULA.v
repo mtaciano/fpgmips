@@ -24,6 +24,7 @@ always @(selecao or var_X or var_Y) begin
         3'b101: resultado = var_X * var_Y;
         3'b110: resultado = var_X / var_Y;
         3'b111: resultado = ~var_X;
+        default: resultado = 32'b0;
     endcase
 
     if (resultado == 0) begin

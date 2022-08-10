@@ -24,12 +24,12 @@ reg [31:0] registradores [31:0];
 
 always @(posedge clock) begin
     if (escreve_R) begin
-        registradores[endereco_E] = dados;
+        registradores[endereco_E] <= dados;
     end
 end
 
-assign resultado_RS = registradores[endereco_L1];
 assign resultado_RD = registradores[endereco_E];
+assign resultado_RS = registradores[endereco_L1];
 assign resultado_RT = registradores[endereco_L2];
 
 endmodule
