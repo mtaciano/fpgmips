@@ -10,5 +10,6 @@ simulation/
 *.smsg
 *.vwf
 *.sof
+*.bsf
 out_bin.txt
 .vscode
