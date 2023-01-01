@@ -18,12 +18,19 @@ initial begin
     saida <= 32'b0;
 end
 
+reg lock = 0;
+always @(halt) begin
+    if (halt) begin
+        lock <= 1;
+    end
+end
+
 always @(posedge clock) begin
     if (reseta) begin
         saida <= 32'b0;
     end else if (jump == 1) begin
         saida <= endereco;
-    end else if (halt == 1) begin
+    end else if (lock == 1) begin
         saida <= saida; // Continua rodando o HLT
     end else begin
         saida <= saida + 1; // O PC nesse processador precisa adicionar apenas 1

@@ -86,11 +86,11 @@ wire clockOut;
 
 
 
-ClockDivider clock_div_mod(
-    .clockIn(CLOCK_50),
-    .halt(haltOut),
-    .clockOut(clockOut)
-);
+//ClockDivider clock_div_mod(
+//    .clockIn(CLOCK_50),
+//    .halt(haltOut),
+//    .clockOut(clockOut)
+//);
 
 
 Debouncer debounce_mod1(
@@ -106,7 +106,8 @@ Debouncer debounce_mod2(
 
 
 PC pc_mod(
-    .clock(clockOut),
+    //.clock(clockOut),
+    .clock(CLOCK_50),
     .jump(jump),
     .reseta(reseta),
     .halt(haltOut),
@@ -125,7 +126,8 @@ In in_mod(
 Out out_mod(
     .escrever(escreverOut),
     .entrada(resultado),
-    .clock(clockOut),
+    //.clock(clockOut),
+    .clock(CLOCK_50),
     .setseg1(setseg1),
     .setseg2(setseg2),
     .setseg3(setseg3),
@@ -176,7 +178,8 @@ Extensor extensor_mod(
 
 
 UniControle uni_controle_mod(
-    .clock(clockOut),
+    //.clock(clockOut),
+    .clock(CLOCK_50),
     .zero(z),
     .negativo(n),
     .imediato(extensor),
@@ -207,13 +210,15 @@ ULA ula_mod(
 
 
 MemInst mem_inst_mod(
-    .clock(clockOut),
+    //.clock(clockOut),
+    .clock(CLOCK_50),
     .endereco(saida),
     .saida(instrucao));
 
 
 MemDados mem_dados_mod(
-    .clock(clockOut),
+    //.clock(clockOut),
+    .clock(CLOCK_50),
     .escrever(escreveM),
     .dados(rd),
     .endereco(saidaultimo),
@@ -221,7 +226,8 @@ MemDados mem_dados_mod(
 
 
 Registradores registradores_mod(
-    .clock(clockOut),
+    //.clock(clockOut),
+    .clock(CLOCK_50),
     .escreve_R(escreveR),
     .dados(dados),
     .endereco_E(instrucao[26:22]),
