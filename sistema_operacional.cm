@@ -1,0 +1,105 @@
+// TODO: usar variáveis sobreescreve o save_reg e load_reg
+// TODO: salvar o PC
+// TODO: novas funções ->
+// set_preempt(); stop_preempt(); save_reg(); load_reg(); save_pc(); set_pc();
+
+/* Informações dos programas rodando */
+int PC_CURRENT;
+int PC[3];
+int REG_UM[32];
+int REG_DOIS[32];
+int REG_TRES[32];
+
+/* Informações do SO */
+int FIRST_TIME;
+int PREEMPT;
+int CURRENT_PROG;
+int PROG_FINISHED[3];
+int NUM_FINISHED;
+
+int QUANTUM;
+
+int
+mod_prog(int val) /* 1 -> 2 -> 3 -> 1 */
+{
+    if (val > 3) {
+        return val - 3;
+    } else {
+        return val;
+    }
+}
+
+void
+main(void)
+{
+    int i;
+
+    while (i < 32) {
+        if (CURRENT_PROG == 1) {
+            save_reg(i, REG_UM[i]);
+        } else if (CURRENT_PROG == 2) {
+            save_reg(i, REG_DOIS[i]);
+        } else if (CURRENT_PROG == 3) {
+            save_reg(i, REG_TRES[i]);
+        }
+        i = i + 1;
+    }
+    i = 0;
+
+    if (PREEMPT == 0) { /* Primeira vez rodando o SO */
+        FIRST_TIME = 1;
+        NUM_FINISHED = 0;
+        QUANTUM = 10;
+
+        // Qual modo deseja rodar? (1 preempt -- 2 normal)
+        PREEMPT = input();
+
+        // Qual programa deseja rodar primeiro? (1, 2, 3)
+        CURRENT_PROG = input();
+    }
+
+    if (PREEMPT == 1) {            /* Modo preempção */
+        if (FIRST_TIME == 0) {     /* Já rodou uma vez */
+            if (PC_CURRENT == 0) { /* Terminou o programa */
+                PROG_FINISHED[CURRENT_PROG] = 1;
+                NUM_FINISHED = NUM_FINISHED + 1;
+            } else { /* Há um PC, então ainda não acabou de rodar */
+                PC[CURRENT_PROG] = PC_CURRENT;
+            }
+
+            /* Vai para o próximo programa */
+            CURRENT_PROG = mod_prog(CURRENT_PROG + 1);
+
+            if (NUM_FINISHED < 3) {
+                while (PROG_FINISHED[CURRENT_PROG] == 1) {
+                    CURRENT_PROG = mod_prog(CURRENT_PROG + 1);
+                }
+
+                while (i < 32) {
+                    if (CURRENT_PROG == 1) {
+                        load_reg(REG_UM[i], i);
+                    } else if (CURRENT_PROG == 2) {
+                        load_reg(REG_DOIS[i], i);
+                    } else if (CURRENT_PROG == 3) {
+                        load_reg(REG_TRES[i], i);
+                    }
+                    i = i + 1;
+                }
+                i = 0;
+
+                set_pc(PC[CURRENT_PROG]);
+            } else { /* Todos terminaram */
+                PREEMPT = 0;
+                set_preempt(0); /* Desliga preempção */
+                set_pc(0);      /* Volta pro começo */
+            }
+        } else { /* Primeira vez rodando */
+            FIRST_TIME = 0;
+            set_preempt(QUANTUM);
+            set_pc(512 * CURRENT_PROG);
+        }
+    } else if (PREEMPT == 2) { /* Modo normal */
+        PREEMPT = 0;
+        set_pc(512 * CURRENT_PROG); /* Começo do programa */
+    }
+}

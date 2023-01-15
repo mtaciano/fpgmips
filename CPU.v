@@ -9,15 +9,22 @@ module CPU(
     LEDR
 );
 
+// nova instrucao que muda o quantum
+// quantum == 0 desligado
+// ligar quando der jump e desligar quando acabar para voltar para o so
+// guardar pc na memoria 0
+
 input wire CLOCK_50;
-input wire [3:0] KEY;
 input wire [17:0] SW;
-output reg [6:0] HEX3;
-output reg [6:0] HEX2;
-output reg [6:0] HEX1;
+input wire [3:0] KEY;
+
 output reg [6:0] HEX0;
+output reg [6:0] HEX1;
+output reg [6:0] HEX2;
+output reg [6:0] HEX3;
 output reg [17:0] LEDR;
 
+// TODO: melhorar as conexões
 wire [2:0] alucrt;
 wire [31:0] dados;
 wire selecionaIn;
@@ -86,100 +93,109 @@ wire clockOut;
 
 
 
-//ClockDivider clock_div_mod(
-//    .clockIn(CLOCK_50),
-//    .halt(haltOut),
-//    .clockOut(clockOut)
-//);
+ClockDivider clock_divider_mod (
+    .input_clock(CLOCK_50),
+    .halt(haltOut),
+    .output_clock(clockOut)
+);
 
 
-Debouncer debounce_mod1(
+Debouncer debouncer_mod1 (
     .clock(CLOCK_50),
-    .botao(KEY[3]),
-    .saida(selecionaIn));
+    .button(KEY[3]),
+    .output_button(selecionaIn)
+);
 
 
-Debouncer debounce_mod2(
+Debouncer debouncer_mod2 (
     .clock(CLOCK_50),
-    .botao(KEY[0]),
-    .saida(reseta));
+    .button(KEY[0]),
+    .output_button(reseta)
+);
 
 
-PC pc_mod(
-    //.clock(clockOut),
-    .clock(CLOCK_50),
+PC pc_mod (
+    .clock(clockOut),
     .jump(jump),
     .reseta(reseta),
     .halt(haltOut),
     .endereco(jumpE),
-    .saida(saida));
+    .saida(saida)
+);
 
 
-In in_mod(
-    .switch(SW),
-    .escreveInput(escreverIn),
-    .botao(selecionaIn),
-    .haltIn(haltIn),
-    .saida(saidaInput));
+Input input_mod (
+    .clock(CLOCK_50),
+    .button(selecionaIn),
+    .output_enable(escreverIn),
+    .switches(SW),
+    .halt_from_input(haltIn),
+    .output_value(saidaInput)
+);
 
 
-Out out_mod(
+Out out_mod (
     .escrever(escreverOut),
     .entrada(resultado),
-    //.clock(clockOut),
-    .clock(CLOCK_50),
+    .clock(clockOut),
     .setseg1(setseg1),
     .setseg2(setseg2),
     .setseg3(setseg3),
-    .setseg4(setseg4));
+    .setseg4(setseg4)
+);
 
 
-Halt halt_mod(
+Halt halt_mod (
     .halt1(haltIn),
     .halt2(haltUni),
     .reseta(reseta),
-    .haltOut(haltOut));
+    .haltOut(haltOut)
+);
 
 
-Mux2 mux2_mod1(
+Mux2 mux2_mod1 (
     .selecao(muxreg),
     .entrada1(saidaultimo),
     .entrada2(saidamemdados),
-    .saida(saidaescrita));
+    .saida(saidaescrita)
+);
 
 
-Mux2 mux2_mod2(
+Mux2 mux2_mod2 (
     .selecao(imediato),
     .entrada1(rt),
     .entrada2(extensor),
-    .saida(vary));
+    .saida(vary)
+);
 
 
-Mux2 mux2_mod3(
+Mux2 mux2_mod3 (
     .selecao(selulmux),
     .entrada1(resultado),
     .entrada2(extensor),
-    .saida(saidaultimo));
+    .saida(saidaultimo)
+);
 
 
-Mux2 mux2_mod4(
+Mux2 mux2_mod4 (
     .selecao(seldados),
     .entrada1(extensor),
     .entrada2(saidaescrita),
-    .saida(dados));
+    .saida(dados)
+);
 
 
-Extensor extensor_mod(
+Extensor extensor_mod (
     .selecao(selextensor),
     .entrada_1(instrucao[16:0]),
     .entrada_2(instrucao[21:0]),
     .entrada_in(saidaInput),
-    .saida(extensor));
+    .saida(extensor)
+);
 
 
-UniControle uni_controle_mod(
-    //.clock(clockOut),
-    .clock(CLOCK_50),
+UniControle uni_controle_mod (
+    .clock(clockOut),
     .zero(z),
     .negativo(n),
     .imediato(extensor),
@@ -197,37 +213,38 @@ UniControle uni_controle_mod(
     .escreverOut(escreverOut),
     .escreverIn(escreverIn),
     .aluControl(alucrt),
-    .jumpE(jumpE));
+    .jumpE(jumpE)
+);
 
 
-ULA ula_mod(
-    .selecao(alucrt),
-    .var_X(rs),
-    .var_Y(vary),
-    .flag_N(n),
-    .flag_Z(z),
-    .resultado(resultado));
+ALU alu_mod (
+    .selection(alucrt),
+    .x(rs),
+    .y(vary),
+    .is_negative(n),
+    .is_zero(z),
+    .output_result(resultado)
+);
 
 
-MemInst mem_inst_mod(
-    //.clock(clockOut),
-    .clock(CLOCK_50),
-    .endereco(saida),
-    .saida(instrucao));
+InstructionMemory instruction_memory_mod (
+    .clock(clockOut),
+    .address(saida),
+    .output_instruction(instrucao)
+);
 
 
-MemDados mem_dados_mod(
-    //.clock(clockOut),
-    .clock(CLOCK_50),
+MemDados mem_dados_mod (
+    .clock(clockOut),
     .escrever(escreveM),
     .dados(rd),
     .endereco(saidaultimo),
-    .saida(saidamemdados));
+    .saida(saidamemdados)
+);
 
 
-Registradores registradores_mod(
-    //.clock(clockOut),
-    .clock(CLOCK_50),
+Registradores registradores_mod (
+    .clock(clockOut),
     .escreve_R(escreveR),
     .dados(dados),
     .endereco_E(instrucao[26:22]),
@@ -235,10 +252,11 @@ Registradores registradores_mod(
     .endereco_L2(instrucao[16:12]),
     .resultado_RD(rd),
     .resultado_RS(rs),
-    .resultado_RT(rt));
+    .resultado_RT(rt)
+);
 
 
-Display7Seg display_7seg_mod4(
+Display7Seg display_7seg_mod4 (
     .in(setseg4),
     .a(seg4_a),
     .b(seg4_b),
@@ -246,10 +264,11 @@ Display7Seg display_7seg_mod4(
     .d(seg4_d),
     .e(seg4_e),
     .f(seg4_f),
-    .g(seg4_g));
+    .g(seg4_g)
+);
 
 
-Display7Seg display_7seg_mod3(
+Display7Seg display_7seg_mod3 (
     .in(setseg3),
     .a(seg3_a),
     .b(seg3_b),
@@ -257,10 +276,11 @@ Display7Seg display_7seg_mod3(
     .d(seg3_d),
     .e(seg3_e),
     .f(seg3_f),
-    .g(seg3_g));
+    .g(seg3_g)
+);
 
 
-Display7Seg display_7seg_mod2(
+Display7Seg display_7seg_mod2 (
     .in(setseg2),
     .a(seg2_a),
     .b(seg2_b),
@@ -268,10 +288,11 @@ Display7Seg display_7seg_mod2(
     .d(seg2_d),
     .e(seg2_e),
     .f(seg2_f),
-    .g(seg2_g));
+    .g(seg2_g)
+);
 
 
-Display7Seg display_7seg_mod1(
+Display7Seg display_7seg_mod1 (
     .in(setseg1),
     .a(seg1_a),
     .b(seg1_b),
@@ -279,7 +300,8 @@ Display7Seg display_7seg_mod1(
     .d(seg1_d),
     .e(seg1_e),
     .f(seg1_f),
-    .g(seg1_g));
+    .g(seg1_g)
+);
 
 
 
@@ -292,7 +314,7 @@ always @(*) begin
         HEX3[4],
         HEX3[5],
         HEX3[6]
-    } <= {seg4_a, seg4_b, seg4_c, seg4_d, seg4_e, seg4_f, seg4_g};
+    } = {seg4_a, seg4_b, seg4_c, seg4_d, seg4_e, seg4_f, seg4_g};
 
     {
         HEX2[0],
@@ -302,7 +324,7 @@ always @(*) begin
         HEX2[4],
         HEX2[5],
         HEX2[6]
-    } <= {seg3_a, seg3_b, seg3_c, seg3_d, seg3_e, seg3_f, seg3_g};
+    } = {seg3_a, seg3_b, seg3_c, seg3_d, seg3_e, seg3_f, seg3_g};
 
     {
         HEX1[0],
@@ -312,7 +334,7 @@ always @(*) begin
         HEX1[4],
         HEX1[5],
         HEX1[6]
-    } <= {seg2_a, seg2_b, seg2_c, seg2_d, seg2_e, seg2_f, seg2_g};
+    } = {seg2_a, seg2_b, seg2_c, seg2_d, seg2_e, seg2_f, seg2_g};
 
     {
         HEX0[0],
@@ -322,13 +344,13 @@ always @(*) begin
         HEX0[4],
         HEX0[5],
         HEX0[6]
-    } <= {seg1_a, seg1_b, seg1_c, seg1_d, seg1_e, seg1_f, seg1_g};
+    } = {seg1_a, seg1_b, seg1_c, seg1_d, seg1_e, seg1_f, seg1_g};
 
-    LEDR[17] <= selecionaIn;
-    LEDR[16] <= haltIn;
-    LEDR[15:1] <= 15'b0;
-    LEDR[1] <= reseta;
-    LEDR[0] <= haltUni;
+    LEDR[17] = selecionaIn;
+    LEDR[16] = haltIn;
+    LEDR[15:2] = 14'b0;
+    LEDR[1] = reseta;
+    LEDR[0] = haltUni;
 end
 
 endmodule

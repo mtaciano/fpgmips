@@ -13,10 +13,11 @@ integer haltTotal = 0;
 output wire haltOut;
 
 always @(*) begin
-    case (reseta)
-        1'b1: haltTotal = halt1;
-        1'b0: haltTotal = halt1 + halt2;
-    endcase
+    if (reseta) begin
+        haltTotal = halt1;
+    end else begin
+        haltTotal = halt1 + halt2;
+    end
 end
 
 assign haltOut = (haltTotal > 0) ? 1'b1 : 1'b0;

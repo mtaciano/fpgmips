@@ -10,9 +10,10 @@ module Display7Seg(
 );
 
 input wire [3:0] in;
-reg [6:0] segmentos;
 
 output wire a, b, c, d, e, f, g;
+
+reg [6:0] segmentos;
 
 always @(*) begin
     case (in)

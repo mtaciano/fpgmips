@@ -1,5 +1,6 @@
 module MemDados (
     dados,
+    // pc,
     endereco,
     clock,
     escrever,
@@ -7,6 +8,7 @@ module MemDados (
 );
 
 input [31:0] dados;
+// input [31:0] pc;
 input [31:0] endereco;
 input clock, escrever;
 
@@ -20,6 +22,7 @@ always @(negedge clock) begin
         memoriaD[endereco] <= dados;
     end
 
+    // memoriaD[0] <= pc;
     addr <= endereco;
 end
 
