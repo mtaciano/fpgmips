@@ -6,6 +6,12 @@ module CPU(
     HEX1,
     HEX2,
     HEX3,
+    HEX4,
+//	 debug_quantum,
+//	 debug_write_quantum,
+//  debug_pc,
+//  debug_preempt_pc,
+//  debug_program_finished,
     LEDR
 );
 
@@ -22,7 +28,19 @@ output reg [6:0] HEX0;
 output reg [6:0] HEX1;
 output reg [6:0] HEX2;
 output reg [6:0] HEX3;
+output reg [6:0] HEX4;
 output reg [17:0] LEDR;
+
+//output wire [31:0] debug_quantum;
+//output wire debug_write_quantum;
+//output wire [31:0] debug_pc;
+//output wire [31:0] debug_preempt_pc;
+//output wire [31:0] debug_program_finished;
+//assign debug_pc = saida;
+//assign debug_preempt_pc = preemptPc;
+//assign debug_program_finished = programEnded;
+//assign debug_write_quantum = escreverQ;
+//assign debug_quantum = rd;
 
 // TODO: melhorar as conexões
 wire [2:0] alucrt;
@@ -37,7 +55,7 @@ wire imediato;
 wire [31:0] instrucao;
 wire jump;
 wire [31:0] jumpE;
-wire muxreg;
+wire [1:0] muxreg;
 wire n;
 wire [31:0] rd;
 wire [31:0] resultado;
@@ -90,7 +108,20 @@ wire haltOut;
 wire [17:0] saidaInput;
 wire reseta;
 wire clockOut;
+wire escreverQ;
+wire haltOutput;
 
+wire seg5_a;
+wire seg5_b;
+wire seg5_c;
+wire seg5_d;
+wire seg5_e;
+wire seg5_f;
+wire seg5_g;
+
+wire programEnded;
+wire [31:0] preemptPc;
+wire [31:0] saidamempc;
 
 
 ClockDivider clock_divider_mod (
@@ -116,11 +147,14 @@ Debouncer debouncer_mod2 (
 
 PC pc_mod (
     .clock(clockOut),
+    .halt(haltUni),
     .jump(jump),
-    .reseta(reseta),
-    .halt(haltOut),
-    .endereco(jumpE),
-    .saida(saida)
+    .reset(reseta),
+    .write_quantum(escreverQ),
+    .quantum(rd),
+    .jump_address(jumpE),
+    .output_address(saida),
+    .program_ended(programEnded)
 );
 
 
@@ -135,28 +169,30 @@ Input input_mod (
 
 
 Out out_mod (
-    .escrever(escreverOut),
-    .entrada(resultado),
-    .clock(clockOut),
-    .setseg1(setseg1),
-    .setseg2(setseg2),
-    .setseg3(setseg3),
-    .setseg4(setseg4)
+    .clock(CLOCK_50),
+    .button(selecionaIn),
+    .write_enable(escreverOut),
+    .input_value(resultado),
+    .sevn_seg1(setseg1),
+    .sevn_seg2(setseg2),
+    .sevn_seg3(setseg3),
+    .sevn_seg4(setseg4),
+    .halt_from_output(haltOutput)
 );
 
 
 Halt halt_mod (
     .halt1(haltIn),
-    .halt2(haltUni),
-    .reseta(reseta),
+    .halt2(haltOutput),
     .haltOut(haltOut)
 );
 
 
-Mux2 mux2_mod1 (
+Mux3 mux3_mod (
     .selecao(muxreg),
     .entrada1(saidaultimo),
     .entrada2(saidamemdados),
+    .entrada3(saidamempc),
     .saida(saidaescrita)
 );
 
@@ -213,7 +249,8 @@ UniControle uni_controle_mod (
     .escreverOut(escreverOut),
     .escreverIn(escreverIn),
     .aluControl(alucrt),
-    .jumpE(jumpE)
+    .jumpE(jumpE),
+    .escreverQuantum(escreverQ)
 );
 
 
@@ -234,25 +271,28 @@ InstructionMemory instruction_memory_mod (
 );
 
 
-MemDados mem_dados_mod (
+DataMemory data_memory_mod (
     .clock(clockOut),
-    .escrever(escreveM),
-    .dados(rd),
-    .endereco(saidaultimo),
-    .saida(saidamemdados)
+    .write_enable(escreveM),
+    .input_data(rd),
+    .address(saidaultimo),
+    .pc(saida),
+    .program_ended(programEnded),
+    .output_data(saidamemdados),
+    .output_saved_pc(saidamempc)
 );
 
 
-Registradores registradores_mod (
+Registers registers_mod (
     .clock(clockOut),
-    .escreve_R(escreveR),
-    .dados(dados),
-    .endereco_E(instrucao[26:22]),
-    .endereco_L1(instrucao[21:17]),
-    .endereco_L2(instrucao[16:12]),
-    .resultado_RD(rd),
-    .resultado_RS(rs),
-    .resultado_RT(rt)
+    .write_enable(escreveR),
+    .address_l1(instrucao[21:17]),
+    .address_l2(instrucao[16:12]),
+    .address_e(instrucao[26:22]),
+    .data(dados),
+    .output_rs(rs),
+    .output_rd(rd),
+    .output_rt(rt)
 );
 
 
@@ -303,9 +343,30 @@ Display7Seg display_7seg_mod1 (
     .g(seg1_g)
 );
 
+ProgramNumber program_number_mod (
+    .in(saida),
+    .a(seg5_a),
+    .b(seg5_b),
+    .c(seg5_c),
+    .d(seg5_d),
+    .e(seg5_e),
+    .f(seg5_f),
+    .g(seg5_g)
+);
+
 
 
 always @(*) begin
+    {
+        HEX4[0],
+        HEX4[1],
+        HEX4[2],
+        HEX4[3],
+        HEX4[4],
+        HEX4[5],
+        HEX4[6]
+    } = {seg5_a, seg5_b, seg5_c, seg5_d, seg5_e, seg5_f, seg5_g};
+
     {
         HEX3[0],
         HEX3[1],
@@ -348,7 +409,9 @@ always @(*) begin
 
     LEDR[17] = selecionaIn;
     LEDR[16] = haltIn;
-    LEDR[15:2] = 14'b0;
+    LEDR[15] = haltOutput;
+    LEDR[14:3] = 12'b0;
+    LEDR[2] = haltOut;
     LEDR[1] = reseta;
     LEDR[0] = haltUni;
 end

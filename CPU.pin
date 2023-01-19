@@ -113,7 +113,7 @@ RESERVED_INPUT               : AA15      :        :                   :         
 RESERVED_INPUT               : AA16      :        :                   :         : 4         :                
 RESERVED_INPUT               : AA17      :        :                   :         : 4         :                
 VCCIO4                       : AA18      : power  :                   : 2.5V    : 4         :                
-RESERVED_INPUT               : AA19      :        :                   :         : 4         :                
+HEX4[1]                      : AA19      : output : 2.5 V             :         : 4         : Y              
 GNDA4                        : AA20      : gnd    :                   :         :           :                
 HEX3[3]                      : AA21      : output : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT               : AA22      :        :                   :         : 5         :                
@@ -141,7 +141,7 @@ RESERVED_INPUT               : AB15      :        :                   :         
 RESERVED_INPUT               : AB16      :        :                   :         : 4         :                
 RESERVED_INPUT               : AB17      :        :                   :         : 4         :                
 RESERVED_INPUT               : AB18      :        :                   :         : 4         :                
-RESERVED_INPUT               : AB19      :        :                   :         : 4         :                
+HEX4[0]                      : AB19      : output : 2.5 V             :         : 4         : Y              
 HEX3[2]                      : AB20      : output : 2.5 V             :         : 4         : Y              
 KEY[2]                       : AB21      : input  : 2.5 V             :         : 4         : Y              
 KEY[0]                       : AB22      : input  : 2.5 V             :         : 4         : Y              
@@ -224,8 +224,8 @@ RESERVED_INPUT               : AE14      :        :                   :         
 SW[4]                        : AE15      : input  : 2.5 V             :         : 4         : Y              
 SW[2]                        : AE16      : input  : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT               : AE17      :        :                   :         : 4         :                
-RESERVED_INPUT               : AE18      :        :                   :         : 4         :                
-RESERVED_INPUT               : AE19      :        :                   :         : 4         :                
+HEX4[6]                      : AE18      : output : 2.5 V             :         : 4         : Y              
+HEX4[4]                      : AE19      : output : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT               : AE20      :        :                   :         : 4         :                
 SW[10]                       : AE21      : input  : 2.5 V             :         : 4         : Y              
 SW[13]                       : AE22      : input  : 2.5 V             :         : 4         : Y              
@@ -253,7 +253,7 @@ SW[8]                        : AF15      : input  : 2.5 V             :         
 SW[6]                        : AF16      : input  : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT               : AF17      :        :                   :         : 4         :                
 RESERVED_INPUT               : AF18      :        :                   :         : 4         :                
-RESERVED_INPUT               : AF19      :        :                   :         : 4         :                
+HEX4[5]                      : AF19      : output : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT               : AF20      :        :                   :         : 4         :                
 SW[14]                       : AF21      : input  : 2.5 V             :         : 4         : Y              
 SW[15]                       : AF22      : input  : 2.5 V             :         : 4         : Y              
@@ -283,7 +283,7 @@ RESERVED_INPUT               : AG17      :        :                   :         
 RESERVED_INPUT               : AG18      :        :                   :         : 4         :                
 RESERVED_INPUT               : AG19      :        :                   :         : 4         :                
 GND                          : AG20      : gnd    :                   :         :           :                
-RESERVED_INPUT               : AG21      :        :                   :         : 4         :                
+HEX4[2]                      : AG21      : output : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT               : AG22      :        :                   :         : 4         :                
 RESERVED_INPUT               : AG23      :        :                   :         : 4         :                
 GND                          : AG24      : gnd    :                   :         :           :                
@@ -310,7 +310,7 @@ RESERVED_INPUT               : AH17      :        :                   :         
 RESERVED_INPUT               : AH18      :        :                   :         : 4         :                
 RESERVED_INPUT               : AH19      :        :                   :         : 4         :                
 VCCIO4                       : AH20      : power  :                   : 2.5V    : 4         :                
-RESERVED_INPUT               : AH21      :        :                   :         : 4         :                
+HEX4[3]                      : AH21      : output : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT               : AH22      :        :                   :         : 4         :                
 RESERVED_INPUT               : AH23      :        :                   :         : 4         :                
 VCCIO4                       : AH24      : power  :                   : 2.5V    : 4         :                

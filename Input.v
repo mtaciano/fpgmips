@@ -18,7 +18,7 @@ output reg [17:0] output_value;
 reg is_pressed;
 
 initial begin
-    is_pressed <= 1'b0;
+    is_pressed <= 1'b1;
 end
 
 always @(posedge clock) begin
