@@ -1,0 +1,108 @@
+/* Sistema Operacional do FPGMIPS */
+
+void
+main(void)
+{
+    /* Informações dos programas rodando */
+    int PC_CURRENT; /* (0) */
+    int PC[3];
+    int TEMP_REG[32]; /* Local temporário dos registradores (4 - 35) */
+    int REGS[96];     /* P1:<0-31> | P2:<32-63> | P3:<64-95> */
+
+    /* Informações do SO */
+    int FIRST_TIME;
+    int PREEMPT;
+    int CURRENT_PROG;
+    int PROG_FINISHED[3];
+    int NUM_FINISHED;
+
+    int QUANTUM;
+
+    int i;
+    int offset;
+
+    save_reg(); /* Salva os registradores no endereço 4-35 (TEMP_REG) */
+
+    if (PREEMPT == 0) { /* Primeira vez rodando o SO */
+        FIRST_TIME = 1;
+
+        NUM_FINISHED = 0;
+        PROG_FINISHED[0] = 0;
+        PROG_FINISHED[1] = 0;
+        PROG_FINISHED[2] = 0;
+
+        PC_CURRENT = 0;
+        PC[0] = 0;
+        PC[1] = 0;
+        PC[2] = 0;
+
+        QUANTUM = 10;
+
+        /* Qual modo deseja rodar? (1 preempt -- 2 normal) */
+        PREEMPT = input();
+
+        /* Qual programa deseja rodar primeiro? (1, 2, 3) */
+        CURRENT_PROG = input();
+        CURRENT_PROG = CURRENT_PROG - 1;
+    }
+
+    if (PREEMPT == 1) {            /* Modo preempção */
+        if (FIRST_TIME == 0) {     /* Já rodou uma vez */
+            PC_CURRENT = get_pc();
+
+            if (PC_CURRENT == 0) { /* Terminou o programa */
+                NUM_FINISHED = NUM_FINISHED + 1;
+                PROG_FINISHED[CURRENT_PROG] = 1;
+            } else { /* Há um PC, então ainda não acabou de rodar */
+                PC[CURRENT_PROG] = PC_CURRENT + 1;
+
+                i = 0;
+                offset = CURRENT_PROG * 32;
+                while (i < 32) { /* Salvando registradores */
+                    REGS[i + offset] = TEMP_REG[i];
+                    TEMP_REG[i] = 0;
+                    i = i + 1;
+                }
+            }
+
+            /* Vai para o próximo programa */
+            /* 0 -> 1 -> 2 -> 0 */
+            CURRENT_PROG = CURRENT_PROG + 1;
+            if (CURRENT_PROG >= 3) {
+                CURRENT_PROG = 0;
+            }
+
+            if (NUM_FINISHED < 3) { /* Ainda há programas para executar */
+                while (PROG_FINISHED[CURRENT_PROG] == 1) {
+                    /* Pula os programas que já terminaram */
+                    /* 0 -> 1 -> 2 -> 0 */
+                    CURRENT_PROG = CURRENT_PROG + 1;
+                    if (CURRENT_PROG >= 3) {
+                        CURRENT_PROG = 0;
+                    }
+                }
+
+                if (PC[CURRENT_PROG] != 0) { /* Já rodou uma vez */
+                    /* NOTE: modificar o binário */
+                    /* Vai para o registrador 31 */
+                    offset = PC[CURRENT_PROG];
+                    load_reg(REGS[CURRENT_PROG * 32]);
+                    set_pc(offset);
+                } else { /* Primeira vez rodando */
+                    set_pc(512 * (CURRENT_PROG + 1));
+                }
+            } else { /* Todos terminaram */
+                PREEMPT = 0;
+                set_preempt(0); /* Desliga preempção */
+                set_pc(0);      /* Volta pro começo */
+            }
+        } else { /* Primeira vez rodando */
+            FIRST_TIME = 0;
+            set_preempt(QUANTUM);
+            set_pc(512 * (CURRENT_PROG + 1));
+        }
+    } else if (PREEMPT == 2) { /* Modo normal */
+        PREEMPT = 0;
+        set_pc(512 * (CURRENT_PROG + 1)); /* Começo do programa */
+    }
+}

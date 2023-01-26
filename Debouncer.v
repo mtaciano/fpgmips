@@ -1,34 +1,51 @@
-module Debouncer(
+module Debouncer (
     clock,
-    botao,
-    saida
+    button,
+    output_button
 );
 
-input clock; //clock
-input botao; //botao
-output reg saida; // saida
+input clock;
+input button;
 
-// First use two flip-flops to synchronize the PB signal the "clk" clock domain
-reg PB_sync_0;  always @(posedge clock) PB_sync_0 <= ~botao;  // invert PB to make PB_sync_0 active high
-reg PB_sync_1;  always @(posedge clock) PB_sync_1 <= PB_sync_0;
+output reg output_button;
 
-// Next declare a 16-bits counter
-// reg [15:0] PB_cnt;
-reg [16:0] PB_cnt;
+// First use two flip-flops to synchronize
+// the button signal the input clock domain
+reg button_sync0;
+reg button_sync1;
+
+// Invert PB to make button_sync0 active high
+always @(posedge clock) begin
+    button_sync0 <= ~button;
+end
+
+always @(posedge clock) begin
+    button_sync1 <= button_sync0;
+end
+
+// Next declare a 17 bits counter
+reg [16:0] counter;
 
 // When the push-button is pushed or released, we increment the counter
-// The counter has to be maxed out before we decide that the push-button state has changed
 
-wire PB_idle = (saida==PB_sync_1);
-wire PB_cnt_max = &PB_cnt;	// true when all bits of PB_cnt are 1's
+// The counter has to be maxed out before we decide that
+// the push-button state has changed
 
-always @(posedge clock)
-if(PB_idle)
-    PB_cnt <= 0;  // nothing's going on
-else
-begin
-    PB_cnt <= PB_cnt + 16'd1;  // something's going on, increment the counter
-    if(PB_cnt_max) saida <= ~saida;  // if the counter is maxed out, PB changed!
+wire button_idle = (output_button == button_sync1);
+wire counter_max = &counter; // True when all bits of counter are 1's
+
+always @(posedge clock) begin
+    if (button_idle) begin
+        counter <= 0; // Nothing's going on
+    end else begin
+        // Something's going on, increment the counter
+        counter <= counter + 17'd1;
+
+        if (counter_max) begin
+            // If the counter is maxed out, the button changed
+            output_button <= ~output_button;
+        end
+    end
 end
 
 endmodule
